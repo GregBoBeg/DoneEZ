@@ -70,7 +70,6 @@ LOGIN_URL = 'login'
 LOGOUT_REDIRECT_URL = '/dashboard/login/'
 
 
-
 # Application definition
 INSTALLED_APPS = [
     'django.contrib.admin',
