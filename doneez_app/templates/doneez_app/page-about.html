@@ -1,0 +1,47 @@
+<!-- Extend the parent template to pass this page's content up to base.html  -->
+{% extends "doneez_app/site-base.html" %}
+
+
+<!-- Page Content STARTS Here -->
+{% block site-content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1 class="page-title">About Us</h1>
+
+            <h2>Our Mission</h2>
+            <p>
+                Our mission is to create an online service marketplace that is built on trust, honesty, and community.
+            </p>
+
+            <h4 style="padding-left:2rem;"> <img src="../media/site-images/Checkmark01.png">Trust</h4>
+            <h4 style="padding-left:2rem;"> <img src="../media/site-images/Checkmark01.png">Honesty</h4>
+            <h4 style="padding-left:2rem;"> <img src="../media/site-images/Checkmark01.png">Community</h4>
+            <br><br>
+
+            <div class="clearfix mb-5">
+                <img src="../media/site-images/istockphoto-1152239905-612x612.jpg" class="responsiveImage" width="25%">
+                <h2>About Us</h2>
+                <p>
+                    Finding a trusted service pro for your job can be challenging. With so many choices, how do you select the right pro for your job? 
+                    One who would not only do a great job, but who is also trustworthy and budget friendly.
+                </p>
+                <p>
+                    Don't worry! That is why we have created DoneEZ. We can help you easily find a trusted local service pro at the best price possible, so you can get on with the more important areas of your life. 
+                    With one click, you will be connected to an available and trusted service pro, who will help you get whatever you need done!
+                </p>
+                <p>
+                    At the initial release, we will focus on helping you find a trusted auto service pro. We do that by inviting only the highly rated local auto service pros to join our network. 
+                    Our auto service network consists of both independent shops and mobile mechanics to ensure that you have the best options when it comes to finding the right auto service pro for your job.
+                </p>
+                <a href="/">Find one now!</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<!-- Page Content ENDS Here -->
+{% endblock site-content %}

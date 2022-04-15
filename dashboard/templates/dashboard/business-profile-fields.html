@@ -1,0 +1,156 @@
+
+<!-- LEFT COLUMN -->
+
+<div class="col-lg-6 px-0 py-0">
+    <div class="container">
+        <div class="row">
+
+            <!-- Business Name -->
+
+            <div class="col-12 pt-3 px-0">
+                <div class="form-floating">
+                    {{ form.business_name }}
+                    <label for="business_name" class="form-label">{{ form.business_name.label_tag }}</label>
+                </div>
+                {% if form.business_name.help_text %}
+                <div class="form-text text-muted small mt-0">{{ form.business_name.help_text|safe }}</div>
+                {% endif %}
+                <div class="form-text text-danger small mt-0">{{ form.business_name.errors.as_text|cut:"* " }}</div>
+            </div>
+
+            <!-- Business Tagline -->
+
+            <div class="col-12 pt-3 px-0">
+                <div class="form-floating">
+                    {{ form.business_tagline }}
+                    <label for="business_tagline" class="form-label">{{ form.business_tagline.label_tag }}</label>
+                </div>
+                {% if form.business_tagline.help_text %}
+                <div class="form-text text-muted small mt-0">{{ form.business_tagline.help_text|safe }}</div>
+                {% endif %}
+                <div class="form-text text-danger small mt-0">{{ form.business_tagline.errors.as_text|cut:"* " }}</div>
+            </div>
+
+
+            <!-- Business Email -->
+
+            <div class="col-12 pt-3 px-0">
+                <div class="form-floating">
+                    {{ form.business_email }}
+                    <label for="business_email" class="form-label">{{ form.business_email.label_tag }}</label>
+                </div>
+                {% if form.business_email.help_text %}
+                <div class="form-text text-muted small mt-0">{{ form.business_email.help_text|safe }}</div>
+                {% endif %}
+                <div class="form-text text-danger small mt-0">{{ form.business_email.errors.as_text|cut:"* " }}</div>
+            </div>
+
+            <!-- Business Website -->
+
+            <div class="col-12 pt-3 px-0">
+                <div class="form-floating">
+                    {{ form.business_website }}
+                    <label for="business_website" class="form-label">{{ form.business_website.label_tag }}</label>
+                </div>
+                {% if form.business_website.help_text %}
+                <div class="form-text text-muted small mt-0">{{ form.business_website.help_text|safe }}</div>
+                {% endif %}
+                <div class="form-text text-danger small mt-0">{{ form.business_website.errors.as_text|cut:"* " }}</div>
+            </div>
+
+            <!--Business Phone1-->
+
+            <div class="col-12 pt-3 px-0">
+                <div class="form-floating">
+                    {{ form.business_phone1 }}
+                    <label for="business_phone1" class="form-label">Primary Phone</label>
+                </div>
+                {% if form.business_phone1.help_text %}
+                <div class="form-text text-muted small mt-0">{{ form.business_phone1.help_text|safe }}</div>
+                {% endif %}
+                <div class="form-text text-danger small mt-0">{{ form.business_phone1.errors.as_text|cut:"* " }}</div>
+            </div>
+
+            <!-- Location Count -->
+
+            <div class="col-12 pt-3 px-0">
+                <div class="form-floating">
+                    {{ form.business_locations }}
+                    <label for="business_locations" class="form-label">{{ form.business_locations.label_tag }}</label>
+                </div>
+                {% if form.business_locations.help_text %}
+                <div class="form-text text-muted small mt-0">{{ form.business_locations.help_text|safe }}</div>
+                {% endif %}
+                <div class="form-text text-danger small mt-0">{{ form.business_locations.errors.as_text|cut:"* " }}</div>
+            </div>
+
+            
+        </div>
+    </div>
+</div>
+
+
+<!-- RIGHT COLUMN -->
+
+<div class="col-lg-6 px-0">
+    <div class="container">
+        <div class="row">
+
+            <!-- Business Hours -->
+
+            <div class="col pt-3 px-0">
+                <div  class="container field-area px-1">
+                    <div class="row">
+                        
+                    </div>
+                    <div class="row">
+                        <div class="col form-label">Hours of Operation:</div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-auto">
+                            <div style="text-align: right">
+                                <div class="form-label">Mon {{ form.business_hours_mon_fm }} to {{ form.business_hours_mon_to }}</div>
+                                <div class="form-label">Tue {{ form.business_hours_tue_fm }} to {{ form.business_hours_tue_to }}</div>
+                                <div class="form-label">Wed {{ form.business_hours_wed_fm }} to {{ form.business_hours_wed_to }}</div>
+                                <div class="form-label">Thu {{ form.business_hours_thu_fm }} to {{ form.business_hours_thu_to }}</div>
+                                <div class="form-label">Fri {{ form.business_hours_fri_fm }} to {{ form.business_hours_fri_to }}</div>
+                                <div class="form-label">Sat {{ form.business_hours_sat_fm }} to {{ form.business_hours_sat_to }}</div>
+                                <div class="form-label">Sun {{ form.business_hours_sun_fm }} to {{ form.business_hours_sun_to }}</div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                
+            </div>
+
+            <!-- Business Hours Note (Special Hours) -->
+
+            <div class="col-12 pt-3 px-0">
+                <div class="form-floating">
+                    {{ form.business_hours_note }}
+                    <label for="business_hours_note" class="form-label">{{ form.business_hours_note.label_tag }}</label>
+                </div>
+                {% if form.business_hours_note.help_text %}
+                <div class="form-text text-muted small mt-0">{{ form.business_hours_note.help_text|safe }}</div>
+                {% endif %}
+                <div class="form-text text-danger small mt-0">{{ form.business_hours_note.errors.as_text|cut:"* " }}</div>
+            </div>
+
+            <!-- Business Description -->
+
+            <div class="col-12 pt-3 px-0">
+                <div class="form-floating">
+                    {{ form.business_description }}
+                    <label for="business_description" class="form-label">{{ form.business_description.label_tag }}</label>
+                </div>
+                {% if form.business_description.help_text %}
+                <div class="form-text text-muted small mt-0">{{ form.business_description.help_text|safe }}</div>
+                {% endif %}
+                <div class="form-text text-danger small mt-0">{{ form.business_description.errors.as_text|cut:"* " }}</div>
+            </div>
+
+        </div>
+    </div>
+</div>
+

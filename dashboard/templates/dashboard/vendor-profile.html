@@ -1,0 +1,100 @@
+{% extends "dashboard/dashboard-base.html" %}
+
+{% block content %}
+<div class="container mb-5">
+    <div class="row justify-content-center">
+        <div class="col" style="min-width: 415px; max-width: 800px;"> <!-- Use this div to set the form width -->
+
+            <div class="row justify-content-center">
+                <div class="col"> 
+        
+                    <h1>Vendor Information</h1>
+        
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col"> 
+                    
+                    <h4>{{business.business_name}}</h4>
+                    <div><em>{{business.business_tagline}}</em></div>
+                    <br>
+                    <div>{{business.business_address_street1}}</div>
+                    <div>{{business.business_address_street2}}</div>
+                    <div>{{business.business_address_city}}, {{business.business_address_state}}  {{business.business_address_zip}}</div>
+        
+                    {% if business.business_phone2 %}
+                    <div>{{business.business_phone1}} (primary)</div>
+                    <div>{{business.business_phone2}} (secondary)</div>
+                    {% else %}
+                    <div>{{business.business_phone1}}</div>
+                    {% endif %}
+                    
+                    <div>{{business.business_email}}</div>
+                    <br>
+                    
+                    <!-- <div>Hours of Operation{{business.business_hours|linebreaks}}</div> -->
+                    <div>Hours of Operation</div>
+                    {% if business.business_hours_mon_fm != "Do Not Display" %}
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-auto">
+                                Mon:<br>
+                                Tue:<br>
+                                Wed:<br>
+                                Thu:<br>
+                                Fri:<br>
+                                Sat:<br>
+                                Sun:<br>
+                            </div>
+                            <div class="col-auto">
+                                {{hours_mon}}<br>
+                                {{hours_tue}}<br>
+                                {{hours_wed}}<br>
+                                {{hours_thu}}<br>
+                                {{hours_fri}}<br>
+                                {{hours_sat}}<br>
+                                {{hours_sun}}<br>
+                            </div>
+                        </div>
+                    </div>
+
+                    {% endif %}
+                    <div>{{business_hours_note}}</div>
+        
+                    {% if business.business_locations %}
+                    <div>Number of Locations: {{business.business_locations}}</div>
+                    {% endif %}
+        
+                </div>
+                <div class="col" style="min-width: 350px;"> 
+                    <div class="my-3 b2bMap">
+                    {{ b2b_map|safe }}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col"> 
+                    <p>{{business.business_description|linebreaks}}</p>
+                </div>
+
+            </div>
+            <div class="row justify-content-center">
+                <div class="col"> 
+        
+                    <!-- Form Buttons -->
+                    <div class="d-grid gap-3 pt-4 px-0">
+                        <a href="{{request.META.HTTP_REFERER|escape}}" class="btn btn-site">Return to Vendor Search</a>
+                        <a href="/dashboard" class="btn btn-site">Return to Dashboard</a>
+                    </div>
+                </div>
+            </div>
+        
+        </div>
+    </div>
+       
+</div>
+
+{% endblock content %}
+
+
+

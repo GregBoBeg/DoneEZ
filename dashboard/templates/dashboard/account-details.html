@@ -1,0 +1,130 @@
+{% extends "dashboard/dashboard-base.html" %}
+
+{% block content %}
+
+<div class="container mb-5">
+    <div class="row justify-content-center">
+        <div class="col" style="min-width: 415px; max-width: 500px;"> <!-- Use this div to set the form width -->
+            <div class="container shadow-lg rounded-lg p-0 m-0"> <!-- This container provides the card's shadow -->
+                <div class="row">
+                    <div class="col">
+            
+
+                        <div class="card border-0">
+
+                            <!-- Form Title -->
+
+                            <div class="card-header">
+                                <h3 class="font-weight-light my-3 text-center">Update Administrator Account</h3>
+                            </div>
+
+                            <!-- Form Area -->
+
+                            <div class="card-body">
+
+                                <form method="POST" class="form-floating">
+
+                                    <!-- Cross Site Request Forgery Security Token -->
+                                    {% csrf_token %}
+
+                                    <!-- Form Errors -->
+                                    {% include "dashboard/dashboard-errors.html" %}
+
+                                    <div class="container">
+
+                                        <!-- Form Instructions -->
+
+                                        <div class="row">
+                                            <div class="col text-center">
+                                                <p class="small">Update the Account Administrator's details.</p>
+                                            </div>
+                                        </div>
+
+                                        <!-- Form Fields -->
+
+                                        <div class="row">
+
+
+                                            <!--Username-->
+                                            <div class="col-12 pt-3 px-0">
+                                                <div class="form-floating">
+                                                    {{ form.username }}
+                                                    <label for="username" class="form-label">Username</label>
+                                                </div>
+                                                {% if form.username.help_text %}
+                                                <div class="form-text text-muted small mt-0">{{ form.username.help_text|safe }}</div>
+                                                {% endif %}
+                                                <div class="form-text text-danger small mt-0">{{ form.username.errors.as_text|cut:"* " }}</div>
+                                            </div>
+
+
+                                            <!--First Name-->
+                                            <div class="col-12 pt-3 px-0">
+                                                <div class="form-floating">
+                                                    {{ form.first_name }}
+                                                    <label for="first_name" class="form-label">First Name</label>
+                                                </div>
+                                                {% if form.first_name.help_text %}
+                                                <div class="form-text text-muted small mt-0">{{ form.first_name.help_text|safe }}</div>
+                                                {% endif %}
+                                                <div class="form-text text-danger small mt-0">{{ form.first_name.errors.as_text|cut:"* " }}</div>
+                                            </div>
+                                            <!--Last Name-->
+                                            <div class="col-12 pt-3 px-0">
+                                                <div class="form-floating">
+                                                    {{ form.last_name }}
+                                                    <label for="last_name" class="form-label">Last Name</label>
+                                                </div>
+                                                {% if form.last_name.help_text %}
+                                                <div class="form-text text-muted small mt-0">{{ form.last_name.help_text|safe }}</div>
+                                                {% endif %}
+                                                <div class="form-text text-danger small mt-0">{{ form.last_name.errors.as_text|cut:"* " }}</div>
+                                            </div>
+
+
+                                            <!--Email-->
+                                            <div class="col-12 pt-3 px-0">
+                                                <div class="form-floating">
+                                                    {{ form.email }}
+                                                    <label for="email" class="form-label">Email</label>
+                                                </div>
+                                                {% if form.email.help_text %}
+                                                <div class="form-text text-muted small mt-0">{{ form.email.help_text|safe }}</div>
+                                                {% endif %}
+                                                <div class="form-text text-danger small mt-0">{{ form.email.errors.as_text|cut:"* " }}</div>
+                                            </div>
+
+                                        </div>
+
+                                        <!-- Form Buttons -->
+
+                                        <div class="row">
+                                            <div class="d-grid gap-3 pt-4 px-0">
+                                                <button type="submit" class="btn btn-site">Save Changes</button>
+                                                <a href="/dashboard" class="btn btn-site">Cancel</a>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </form>
+                            </div>
+
+                            <!-- Form Footer -->
+
+                            <div class="col-12 card-footer text-center">
+                                <a href="{% url 'change-password' %}">Change Password</a><br>
+                                <a href="{% url 'account-close' %}" class="small text-danger">Close Account</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
+
+
+

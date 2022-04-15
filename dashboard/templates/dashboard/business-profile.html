@@ -1,0 +1,84 @@
+{% extends "dashboard/dashboard-base.html" %}
+
+{% block content %}
+
+<div class="container mb-5">
+    <div class="row justify-content-center">
+        <div class="col" style="min-width: 415px; max-width: 1200px;"> <!-- Use this div to set the form width -->
+            <div class="container shadow-lg rounded-lg p-0 m-0"> <!-- This container provides the card's shadow -->
+                <div class="row">
+                    <div class="col">
+            
+
+                        <div class="card border-0">
+
+                            <!-- Form Title -->
+
+                            <div class="card-header">
+                                <h3 class="font-weight-light my-3 text-center">Update Business Profile</h3>
+                            </div>
+
+                            <!-- Form Area -->
+
+                            <div class="card-body px-0">
+
+                                <form method="POST" class="form-floating">
+
+                                    <!-- Cross Site Request Forgery Security Token -->
+                                    {% csrf_token %}
+
+                                    <!-- Form Errors -->
+                                    {% include "dashboard/dashboard-errors.html" %}
+
+                                    <div class="container">
+
+                                        <!-- Form Instructions -->
+
+                                        <div class="row">
+                                            <div class="col text-center">
+                                                <p class="small">Update the business' profile information.</p>
+                                            </div>
+                                        </div>
+
+                                        <!-- Form Fields -->
+
+                                        <div class="row">
+                                        {% include "dashboard/business-profile-fields.html" %}
+                                        </div>
+
+                                        <!-- Form Buttons -->
+
+                                        <div class="row">
+                                            <div class="col-6 ps-0">
+                                                <div class="d-grid gap-3 pt-4 px-0">
+                                                    <button type="submit" class="btn btn-site">Save Changes</button>
+                                                </div>
+                                            </div>
+                                            <div class="col-6 pe-0">
+                                                <div class="d-grid gap-3 pt-4 px-0">
+                                                    <a href="/dashboard" class="btn btn-site">Cancel</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </form>
+
+
+                            </div>
+
+                            <!-- Form Footer -->
+
+                            <div class="col-12 card-footer text-center">
+                                <br>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

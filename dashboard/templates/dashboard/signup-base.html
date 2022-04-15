@@ -1,0 +1,33 @@
+<!-- This template sits between the base.html template and each individual webpage,
+        to allow custom menu and footers between the different website sections and apps.
+-->
+
+<!-- Extend the parent template to insert appropriate corresponding block content -->
+{% extends "doneez_app/base.html" %}
+
+
+<!-- Website Menu -->
+{% block menu %}
+    <!-- Insert the appropriate menu into the base template. In this case, the menu for the main website -->
+    {% include "dashboard/signup-menu.html" %} 
+{% endblock %}
+
+
+<!-- Website Content -->
+
+{% block content %}
+
+    <!-- Leave a placeholder for each webpage's content to be inserted -->
+    {% block dashboard-content %}
+        <!-- Each webpage will extend this template to insert its content here -->
+    {% endblock %}
+
+{% endblock %}
+
+
+<!-- Website Footer -->
+
+{% block footer %}
+    <!-- Insert the appropriate footer into the base template. In this case, the footer for the main website -->
+    {% include "dashboard/signup-footer.html" %}
+{% endblock %}

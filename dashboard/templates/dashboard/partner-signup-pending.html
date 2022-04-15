@@ -1,0 +1,64 @@
+{% extends "dashboard/signup-base.html" %}
+
+{% block content %}
+<div class="container mb-5">
+    <div class="row">
+        <div class="col">
+            <h1>Partner Signup<img src="/media/site-images/Logo v02 Tn.png" style="float:right;"></h1>
+            <br>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col" style="min-width: 415px; max-width: 600px;"> <!-- Use this div to set the form width -->
+                        <div class="container shadow-lg rounded-lg p-0 m-0"> <!-- This container provides the card's shadow -->
+                            <div class="row">
+                                <div class="col">
+                        
+
+                                    <div class="card border-0">
+
+                                        <!-- Card Title -->
+
+                                        <div class="card-header">
+                                            <h3 class="font-weight-light my-3 text-center">Congratulations!</h3>
+                                        </div>
+
+                                        <!-- Card Area -->
+
+                                        <div class="card-body">
+
+                                                <div class="container">
+
+                                                    <!-- Form Instructions -->
+
+                                                    <div class="row">
+                                                        <div class="col text-center">
+                                                            <p class="small">You have completed the Partner Signup!</p>
+                                                            <p class="small">Our team is reviewing your request to join the DoneEZ network. </p>
+                                                            <p class="small">You will receive an email from our Site Admin once approved. </p>
+                                                            <p class="small">Please allow up to 48 hours for your account to be activated. </p>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </form>
+                                        </div>
+
+                                        <!-- Form Footer -->
+
+                                        <div class="col-12 card-footer text-center">
+                                            <a href="{% url 'home' %}">Return Back to DoneEZ.com</a><br>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
+

@@ -1,0 +1,102 @@
+{% extends "dashboard/dashboard-base.html" %}
+
+{% block content %}
+
+<div class="container mb-5">
+    <div class="row justify-content-center">
+        <div class="col" style="min-width: 415px; max-width: 500px;"> <!-- Use this div to set the form width -->
+            <div class="container shadow-lg rounded-lg p-0 m-0"> <!-- This container provides the card's shadow -->
+                <div class="row">
+                    <div class="col">
+
+                        <div class="card border-0">
+
+                            <!-- Form Title -->
+
+                            <div class="card-header">
+                                <h3 class="font-weight-light my-3 text-center">Account Login</h3>
+                            </div>
+
+                            <!-- Form Area -->
+
+                            <div class="card-body">
+
+                                <form method="POST" class="form-floating">
+
+                                    <!-- Cross Site Request Forgery Security Token -->
+                                    {% csrf_token %}
+
+                                    <!-- Form Errors -->
+                                    {% if form.errors %}
+                                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                            Incorrect Username or Password.
+                                    </div>
+                                    {% endif %}
+                                
+                                    <div class="container">
+
+                                        <!-- Form Instructions -->
+
+                                        <div class="row">
+                                            <div class="col text-center">
+                                                <p class="small">Enter the Account Administrator's login credentials.</p>
+                                            </div>
+                                        </div>
+
+                                        <!-- Form Fields -->
+
+                                        <div class="row">
+
+
+                                            <div class="col-12 pt-3 px-0">
+                                                <div class="form-floating">
+                                                    {{ form.username }}
+                                                    <label for="username" class="form-label">Username</label>
+                                                </div>
+                                                {% if form.username.help_text %}
+                                                <div class="form-text text-muted small mt-0">{{ form.username.help_text|safe }}</div>
+                                                {% endif %}
+                                                <div class="form-text text-danger small mt-0">{{ form.username.errors.as_text|cut:"* " }}</div>
+                                            </div>
+                                            <div class="col-12 pt-3 px-0">
+                                                <div class="form-floating">
+                                                    {{ form.password }}
+                                                </div>
+                                                {% if form.password.help_text %}
+                                                <div class="form-text text-muted small mt-0">{{ form.password.help_text|safe }}</div>
+                                                {% endif %}
+                                                <div class="form-text text-danger small mt-0">{{ form.password.errors.as_text|cut:"* " }} {{ form.errors.password }}</div>
+                                            </div>
+
+                                        </div>
+                                        <!-- Form Buttons -->
+
+                                        <div class="row">
+                                            <div class="d-grid gap-3 pt-4 px-0">
+                                                <button type="submit" class="btn btn-site">Login</button>
+                                                <a href="/" class="btn btn-site" value="cancel">Cancel</a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </form>
+
+
+                            </div>
+
+                            <!-- Form Footer -->
+
+                            <div class="col-12 card-footer text-center">
+                                <a href="{% url 'partner-signup-account' %}">Click here to create a new account.</a><br>
+                                <a href="{% url 'password-reset' %}"><i>Forgot Password?</i></a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,173 @@
+
+<div class="container mb-5">
+    <div class="row justify-content-center">
+        <div class="col" style="min-width: 415px; max-width: 700px;"> <!-- Use this div to set the form width -->
+            <div class="container shadow-lg rounded-lg p-0 m-0"> <!-- This container provides the card's shadow -->
+                <div class="row">
+                    <div class="col">
+            
+
+                        <div class="card border-0">
+
+                            <!-- Form Title -->
+
+                            <div class="card-header">
+                                <h3 class="font-weight-light my-3 text-center">Map Your Business Address</h3>
+                            </div>
+
+                            <!-- Form Area -->
+
+                            <div class="card-body">
+
+                                <form method="POST" class="form-floating">
+
+                                    <!-- Cross Site Request Forgery Security Token -->
+                                    {% csrf_token %}
+
+                                    <!-- Form Errors -->
+                                    {% include "dashboard/dashboard-errors.html" %}
+
+                                    <div class="container">
+
+                                        <!-- Form Instructions -->
+
+                                        <div class="row">
+                                            <div class="col text-center">
+                                                <p class="small">Correctly mapping your business is an important aspect of the DoneEZ platform.  Please ensure we have your correct location.</p>
+                                            </div>
+                                        </div>
+
+                                        <!-- Form Fields -->
+
+                                        <div class="row">
+
+
+                                            <!-- Address -->
+
+                                            <!-- Address Line1 -->
+                                            <div class="col-12 pt-3 px-0">
+                                                <div class="form-floating">
+                                                    {{ form.business_address_street1 }}
+                                                    <label for="business_address_line1" class="form-label">Business Address Line 1</label>
+                                                </div>
+                                                {% if form.business_address_street1.help_text %}
+                                                <div class="form-text text-muted small mt-0">{{ form.business_address_street1.help_text|safe }}</div>
+                                                {% endif %}
+                                                <div class="form-text text-danger small mt-0">{{ form.business_address_street1.errors.as_text|cut:"* " }}</div>
+                                            </div>
+                                            <!-- Address Line2 -->
+                                            <div class="col-12 pt-1 px-0">
+                                                <div class="form-floating">
+                                                    {{ form.business_address_street2 }}
+                                                    <label for="business_address_line2" class="form-label">Business Address Line 2</label>
+                                                </div>
+                                                {% if form.business_address_street2.help_text %}
+                                                <div class="form-text text-muted small mt-0">{{ form.business_address_street2.help_text|safe }}</div>
+                                                {% endif %}
+                                                <div class="form-text text-danger small mt-0">{{ form.business_address_street2.errors.as_text|cut:"* " }}</div>
+                                            </div>
+                                            <!-- Address City -->
+                                            <div class="col-5 pt-1 px-0">
+                                                <div class="form-floating">
+                                                    {{ form.business_address_city }}
+                                                    <label for="city" class="form-label">City</label>
+                                                </div>
+                                                {% if form.business_address_city.help_text %}
+                                                <div class="form-text text-muted small mt-0">{{ form.business_address_city.help_text|safe }}</div>
+                                                {% endif %}
+                                            </div>
+                                            <!-- Address State -->
+                                            <div class="col-3 pt-1 px-1">
+                                                <div class="form-floating">
+                                                    {{ form.business_address_state }}
+                                                    <label for="business_address_state" class="form-label">ST</label>
+                                                </div>
+                                                {% if form.business_address_state.help_text %}
+                                                <div class="form-text text-muted small mt-0">{{ form.business_address_state.help_text|safe }}</div>
+                                                {% endif %}
+                                            </div>
+                                            <!-- Address Zip -->
+                                            <div class="col-4 pt-1 px-0">
+                                                <div class="form-floating">
+                                                    {{ form.business_address_zip }}
+                                                    <label for="business_address_zip" class="form-label">Zip Code</label>
+                                                </div>
+                                                {% if form.business_address_zip.help_text %}
+                                                <div class="form-text text-muted small mt-0">{{ form.business_address_zip.help_text|safe }}</div>
+                                                {% endif %}
+                                            </div>
+                                            <!-- Errors:  City State Zip-->
+                                            <div class="col-4 pt-1 px-0">
+                                                <div class="form-text text-danger small mt-0">{{ form.business_address_city.errors.as_text|cut:"* " }}</div>
+                                                <div class="form-text text-danger small mt-0">{{ form.business_address_state.errors.as_text|cut:"* " }}</div>
+                                                <div class="form-text text-danger small mt-0">{{ form.business_address_zip.errors.as_text|cut:"* " }}</div>
+                                            </div>
+
+
+                                        </div>
+
+                                        <!-- Map -->
+
+                                        <div class="row">
+                                            <div class="d-grid gap-3 pt-4 px-0">
+                                                <button type="submit" name="map_unverified" value="map_unverified" class="btn btn-site">Update/Show Address on Map Below</button>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="d-grid gap-3 pt-4 px-0">
+                                                <hr class="mb-0 mt-3">
+                                                {% if map_status == "Map Verified" %}
+                                                <h4>Your map location has been verified!</h4>
+                                                {% elif map_status == "Map Error" %}
+                                                <h4>The map error has been reported.</h4>
+                                                {% else %}
+                                                <h4 class="mb-0 mt-0">Does your business appear on the map below?</h4>
+                                                {% endif %}
+                                                <div class="b2bMap">
+                                                {{ b2b_map|safe }}
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Verify Map Address -->
+                                        {% if map_status == "Map Unverified" %}
+                                        <div class="row">
+                                            <div class="d-grid gap-3 pt-4 px-0">
+                                                <button type="submit" name="map_verified" value="map_unverified" class="btn btn-site">Yes!  This is my correct location!</button>
+                                                <hr>
+                                            </div>
+                                        </div>
+
+
+                                        <!-- Report Map Error -->
+                                        <div class="row">
+                                            <div class="d-grid gap-3 pt-4 px-0">
+                                                <h4 class="mb-0 mt-1">Unable to map your correct location?</h4>
+                                                <p class="alert-danger mt-0">Before clicking the following button to report a map issue, please check your address above for mispellings or abreviations that might be causing an issue.</p>
+                                                <button type="submit" name="map_error" value="map_error" class="btn btn-danger">The map does not show my correct location.</button>
+                                            </div>
+                                        </div>
+                                        {% endif %}
+
+                                    </div>
+                                </form>
+                            </div>
+
+                            <!-- Form Footer -->
+
+                            <div class="col-12 card-footer text-center">
+                                <br>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
