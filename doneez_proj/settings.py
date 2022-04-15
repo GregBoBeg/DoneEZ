@@ -133,10 +133,10 @@ dbsecrets = awssecrets.get_secrets(secret_name, region_name)
 DATABASES = {
     'default': {
         'ENGINE':   dbsecrets["engine"],
-        'NAME':     dbsecrets["dbname"],
-        'USER':     dbsecrets["username"],
-        'PASSWORD': dbsecrets["password"],
-        'HOST':     dbsecrets["host"],
+        'NAME':     dbsecrets["dbname"], 
+        'USER':     dbsecrets["username"], 
+        'PASSWORD': dbsecrets["password"], 
+        'HOST':     dbsecrets["host"], 
         'PORT':     dbsecrets["port"],
     }
 }
