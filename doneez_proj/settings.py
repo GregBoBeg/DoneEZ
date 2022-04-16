@@ -31,7 +31,7 @@ SECRET_KEY = appsecrets["DjangoSecretKey"]
 DEBUG = True
 
 # Host Security Whitelist
-ALLOWED_HOSTS = [appsecrets["DjangoHost"], 'localhost']
+ALLOWED_HOSTS = [appsecrets["DjangoHost"],'awseb-awseb-izpbd03l3kpe-841948061.us-west-1.elb.amazonaws.com', 'localhost']
 
 # Grab the AWS Elastic Beanstalk Private IP and dynamically add it to the allowed hosts
 EC2_PRIVATE_IP = None
