@@ -129,7 +129,7 @@ def partner_signup_account(request):
                 user = authenticate(username=username, password=raw_password)
                 login(request, user)
 
-                messages.success(request, f'Your "{username}" account has been created.  Please continue through the signup process.')
+                messages.success(request, f'Your "{username}" administrator account has been created.  Please continue through the signup process for your business.')
                 return redirect(to='partner-signup-type')
         else:
             form = UserSignupForm()
