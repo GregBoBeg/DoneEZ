@@ -174,7 +174,7 @@ class Business(models.Model):
     business_type = models.ForeignKey(BusinessType, null=True, verbose_name="Business Type", help_text="Select which type of business this is.", on_delete=models.CASCADE)
     signup_stage = models.CharField(max_length=10, choices=PARTNER_SIGNUP_STAGES, default='TYPE', help_text='Indicates where a new partner is in the signup process.')
     items_offered = models.ManyToManyField(Item, verbose_name="Items Offered", help_text="Select all corresponding items your business offers, so that your business can be found when customers search for these products/services.")
-    business_tagline = models.TextField(max_length=55, blank=True, verbose_name="Business Tagline", help_text="Provide a concise tagline to appear in customer's search results.")
+    business_tagline = models.TextField(max_length=70, blank=True, verbose_name="Business Tagline", help_text="Provide a concise tagline to appear in customer's search results.")
     business_featured = models.BooleanField(default=False, verbose_name="Featured?", help_text='Determines whether a business is to be featured at the top of search results.')
     business_name = models.CharField(max_length=100, verbose_name="Business Name")
     business_phone1 = models.CharField(blank=True, max_length=20, verbose_name="Primary Phone", help_text="Enter your business' primary phone number to be displayed publicly online.")

@@ -17,8 +17,10 @@ from geopy import distance
 from geopy.geocoders import Nominatim
 import folium
 from decimal import Decimal
+from django.utils.html import format_html, strip_tags
 from django.core.mail import send_mail
-
+from django.template.loader import render_to_string
+from django.conf import settings
 
 
 # Authentication Section
@@ -60,7 +62,7 @@ def account_login(request):
 
 class ResetPasswordView(SuccessMessageMixin, PasswordResetView):
     template_name = 'dashboard/password-reset.html'
-    email_template_name = 'dashboard/password-reset-email.html'
+    email_template_name = 'dashboard/email-password-reset.html'
     subject_template_name = 'dashboard/password-reset-subject.txt'
     success_message = "Password-reset instructions have been sent to the email address on file.  Check your spam/junk folder if not received within a few minutes."
     success_url = reverse_lazy('login')
@@ -184,27 +186,41 @@ def partner_signup_settings(request):
                 # If the pending_default = True, then the business account will need to be approved by the Website Admin; therefore, we
                 # logout of the account and prevent further use of the Dashboard app until approval has been granted. 
 
+
                 # Get the pending_default for this Business Type
                 requires_approval = request.user.business.business_type.pending_default
 
+                # Save the form and retreive the business record
+                form.save()
+                business = Business.objects.get(pk=request.user.business.id)
+
                 if requires_approval:
-                    form.save()
-                    Business.objects.filter(pk=request.user.business.id).update(signup_stage='PENDING')
-                    logout(request)
+                    business.signup_stage='PENDING'
+                    business.save()
                     messages.success(request, 'Congratulations!  You have completed the Partner Signup!  We are now reviewing your account for approval.')
+
+                    # Send a Confirmation Email
+                    subject = 'DoneEZ - Your Signup is Complete (but Pending Approval)'
+                    html_message = render_to_string('dashboard/email-account-completed.html', {'username': business.user.username})
+                    plain_message = strip_tags(html_message)
+                    from_email = settings.DEFAULT_FROM_EMAIL
+                    to = business.user.email
+                    send_mail(subject, plain_message, from_email, [to], html_message=html_message, fail_silently=False)
+
+                    logout(request)
                     return redirect(to='partner-signup-pending')
                 else:
-                    form.save()
-                    Business.objects.filter(pk=request.user.business.id).update(signup_stage='DONE')
+                    business.signup_stage='DONE'
+                    business.save()
                     messages.success(request, 'Congratulations!  You have completed the Partner Signup!  You are now a valuable member of the DoneEZ network!')
 
-                    send_mail(
-                        'DoneEZ - Your Account Was Successfully Created',
-                        'Congratulations!  You are now a valuable member of the DoneEZ network!  Go to DoneEZ.com to login to your DoneEZ account.',
-                        'gregruiz@me.com',
-                        [request.user.email],
-                        fail_silently=False,
-                    )
+                    # Send a Confirmation Email
+                    subject = 'DoneEZ - Your Account Was Created Successfully!'
+                    html_message = render_to_string('dashboard/email-account-created.html', {'username': business.user.username})
+                    plain_message = strip_tags(html_message)
+                    from_email = settings.DEFAULT_FROM_EMAIL
+                    to = business.user.email
+                    send_mail(subject, plain_message, from_email, [to], html_message=html_message, fail_silently=False)
 
                     return redirect(to='dashboard-home')
 
@@ -630,6 +646,15 @@ def change_password(request):
                 user = form.save()
                 update_session_auth_hash(request, user)  # Important!
                 messages.success(request, 'Your password has been updated successfully.')
+
+                # Send a Confirmation Email
+                subject = 'DoneEZ - Password Changed'
+                html_message = render_to_string('dashboard/email-password-changed.html', {'username': request.user.username})
+                plain_message = strip_tags(html_message)
+                from_email = settings.DEFAULT_FROM_EMAIL
+                to = request.user.email
+                send_mail(subject, plain_message, from_email, [to], html_message=html_message, fail_silently=False)
+
                 return redirect(to='dashboard-home')
             else:
                 messages.error(request, 'Please correct the error below.')
@@ -654,13 +679,14 @@ def account_close(request):
                 user.is_active = False
                 user.save()
                 messages.success(request, 'Your account has been closed and customers will no longer be able to reach you on our platform.')
-                send_mail(
-                    'DoneEZ - Account Closed',
-                    'You have closed your DoneEZ account.  Customers will no longer be able to reach you on our platform.  If you closed this account in error, please contact us immediately.',
-                    'gregruiz@me.com',
-                    [request.user.email],
-                    fail_silently=False,
-                )
+
+                # Send a Confirmation Email
+                subject = 'DoneEZ - Account Closed'
+                html_message = render_to_string('dashboard/email-account-closed.html', {'username': user.username})
+                plain_message = strip_tags(html_message)
+                from_email = settings.DEFAULT_FROM_EMAIL
+                to = user.email
+                send_mail(subject, plain_message, from_email, [to], html_message=html_message, fail_silently=False)
 
                 return redirect(to='account-closed')
             else:

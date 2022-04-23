@@ -54,7 +54,7 @@ class CustomChoiceField(forms.ModelChoiceField):
 
 class SignupTypeForm(forms.ModelForm):
 
-    business_type = CustomChoiceField(widget=forms.RadioSelect, queryset=BusinessType.objects.all())
+    business_type = CustomChoiceField(widget=forms.RadioSelect(attrs={'class': "custom-radio-list"}), queryset=BusinessType.objects.all())
 
     class Meta:
         model = Business

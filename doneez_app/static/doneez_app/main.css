@@ -182,6 +182,7 @@ h5 {
     color: #327dc8;
     font-size: 1.5rem;
     margin: 0px 10px 0px 10px;
+    list-style-type: none;
 }
 
 .selector-title:hover {
@@ -192,6 +193,11 @@ h5 {
     color: #00528c;
     font-size: 1.2rem;
     margin: 0px 0px 0px 30px;
+    list-style-type: none;
+}
+
+.custom-radio-list {
+    list-style-type: none;
 }
 
 .field-area {

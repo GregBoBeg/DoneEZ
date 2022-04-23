@@ -9,8 +9,11 @@ from django.forms import Textarea
 from django.db import models
 from django.shortcuts import redirect
 from django.urls import reverse, path
-from django.utils.html import format_html
+from django.utils.html import format_html, strip_tags
 from django.core.mail import send_mail
+from django.template.loader import render_to_string
+from django.conf import settings
+
 
 
 class ItemInline(admin.TabularInline):
@@ -54,15 +57,17 @@ class BusinessAdmin(admin.ModelAdmin):
 
     def approve_business(self, request, id):
 
-        Business.objects.filter(pk=id).update(signup_stage='DONE')
+        business = Business.objects.get(pk=id)
+        business.signup_stage='DONE'
+        business.save()
 
-        send_mail(
-            'DoneEZ - Account Approved!',
-            'Congratulations!  Your DoneEZ account has been approved and activated.  Visit DoneEZ.com to access your new account.',
-            'gregruiz@me.com',
-            [request.user.email],
-            fail_silently=False,
-        )
+        subject = 'DoneEZ - Your Account is Approved!'
+        html_message = render_to_string('doneez_app/email-account-approved.html', {'username': business.user.username})
+        plain_message = strip_tags(html_message)
+        from_email = settings.DEFAULT_FROM_EMAIL
+        to = business.user.email
+
+        send_mail(subject, plain_message, from_email, [to], html_message=html_message, fail_silently=False)
 
         redirect_url = "admin:{}_{}_changelist".format(self.opts.app_label, self.opts.model_name)
         return redirect(reverse(redirect_url))

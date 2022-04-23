@@ -51,16 +51,160 @@ if EC2_PRIVATE_IP:
     ALLOWED_HOSTS.append(EC2_PRIVATE_IP)
 
 
+from django.core.mail import send_mail
+
 # Django SMTP Email Configuration, Secured with AWS Secrets Manager
-DEFAULT_FROM_EMAIL = appsecrets["SMTPEmailFrom"]
-EMAIL_BACKEND = appsecrets["SMTPEmailBackend"]
-EMAIL_HOST = appsecrets["SMTPEmailHost"]
-# EMAIL_PORT = appsecrets["SMTPEmailPort"]
+DEFAULT_FROM_EMAIL = 'gregruiz@me.com'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp-relay.sendinblue.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = str(appsecrets["SMTPUsername"])
+EMAIL_HOST_USER = 'gregruiz@me.com'
 EMAIL_HOST_PASSWORD = str(appsecrets["SMTPPassword"])
 print('------ GR SMTP Settings.py Just connected to email server')
+# DEFAULT_FROM_EMAIL = appsecrets["SMTPEmailFrom"]
+# EMAIL_BACKEND = appsecrets["SMTPEmailBackend"]
+# EMAIL_HOST = appsecrets["SMTPEmailHost"]
+# EMAIL_PORT = appsecrets["SMTPEmailPort"]
+# EMAIL_USE_TLS = True
+# EMAIL_HOST_USER = str(appsecrets["SMTPUsername"])
+# EMAIL_HOST_PASSWORD = str(appsecrets["SMTPPassword"])
+
+
+# send_mail(
+#     'DoneEZ - Account Approved!',
+#     'Congratulations!  Your DoneEZ account has been approved and activated.  Visit DoneEZ.com to access your new account.',
+#     'gregruiz@me.com',
+#     ['gregruiz@me.com'],
+#     fail_silently=False,
+# )
+
+
+
+
+
+#---- Working Start ----#
+# import smtplib, ssl
+# from email.message import EmailMessage
+# # from email.mime.text import MIMEText
+# # from email.mime.multipart import MIMEMultipart
+
+
+# # msg = MIMEMultipart("alternative")
+# # msg = MIMEText('This is test mail')
+# msg = EmailMessage()
+# msg['Subject'] = 'Test mail'
+# msg['From'] = 'gregruiz@me.com'
+# msg['To'] = 'gregruiz@me.com'
+# msg.set_content('Here is the test message content you have been waiting for!!!')
+
+# msg.add_alternative("""\
+# <!DOCTYPE html>
+# <html>
+#     <body>
+#         <h1 style="color:SlateGray;">This is an HTML Email!</h1>
+#     </body>
+# </html>
+# """, subtype='html')
+
+
+# with smtplib.SMTP_SSL(appsecrets["SMTPEmailHost"], appsecrets["SMTPEmailPort"]) as server:
+#     # server.set_debuglevel(1)
+#     server.login(str(appsecrets["SMTPUsername"]), str(appsecrets["SMTPPassword"]))
+    
+#     server.send_message(msg)
+#     print("Successfully sent email")
+
+#---- Working End ----#
+
+
+# # Create the plain-text and HTML version of your message
+# text = """\
+# Hi,
+# How are you?
+# Real Python has many great tutorials:
+# www.realpython.com"""
+# html = """\
+# <html>
+# <body>
+#     <p>Hi,<br>
+#     How are you?<br>
+#     <a href="http://www.realpython.com">Real Python</a> 
+#     has many great tutorials.
+#     </p>
+# </body>
+# </html>
+# """
+
+# # Turn these into plain/html MIMEText objects
+# part1 = MIMEText(text, "plain")
+# part2 = MIMEText(html, "html")
+
+# # Add HTML/plain-text parts to MIMEMultipart message
+# # The email client will try to render the last part first
+# msg.attach(part1)
+# msg.attach(part2)
+
+
+# Create a secure SSL context
+# context = ssl.create_default_context()
+
+
+
+
+
+
+# import smtplib, ssl
+# from email.mime.text import MIMEText
+# from email.mime.multipart import MIMEMultipart
+
+# sender_email = "my@gmail.com"
+# receiver_email = "your@gmail.com"
+# password = input("Type your password and press enter:")
+
+# message = MIMEMultipart("alternative")
+# message["Subject"] = "multipart test"
+# message["From"] = sender_email
+# message["To"] = receiver_email
+
+# # Create the plain-text and HTML version of your message
+# text = """\
+# Hi,
+# How are you?
+# Real Python has many great tutorials:
+# www.realpython.com"""
+# html = """\
+# <html>
+#   <body>
+#     <p>Hi,<br>
+#        How are you?<br>
+#        <a href="http://www.realpython.com">Real Python</a> 
+#        has many great tutorials.
+#     </p>
+#   </body>
+# </html>
+# """
+
+# # Turn these into plain/html MIMEText objects
+# part1 = MIMEText(text, "plain")
+# part2 = MIMEText(html, "html")
+
+# # Add HTML/plain-text parts to MIMEMultipart message
+# # The email client will try to render the last part first
+# message.attach(part1)
+# message.attach(part2)
+
+# # Create secure connection with server and send email
+# context = ssl.create_default_context()
+# with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context) as server:
+#     server.login(sender_email, password)
+#     server.sendmail(
+#         sender_email, receiver_email, message.as_string()
+#     )
+
+
+
+
 
 
 # Set the default for how long session cookies will live = Seconds * Minutes * Hours * Days
