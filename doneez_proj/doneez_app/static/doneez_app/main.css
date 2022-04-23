@@ -34,7 +34,7 @@ body {
     background-color: #ebe3db;
     padding: 0;
     border-top: .5rem solid #327dc8;
-    border-bottom: 1rem solid #327dc8;
+    border-bottom: 1rem solid #000000;
     overflow-y:scroll;
 }
 
