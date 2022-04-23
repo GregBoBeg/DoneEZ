@@ -1,6 +1,7 @@
 asgiref==3.4.1
-boto3==1.21.40
-botocore==1.24.40
+awsebcli==3.20.3
+boto3==1.20.0
+botocore==1.23.50
 branca==0.4.2
 cement==2.8.2
 certifi==2021.10.8
@@ -8,6 +9,8 @@ charset-normalizer==2.0.10
 colorama==0.4.3
 dj-database-url==0.5.0
 Django==3.1.5
+django-heroku==0.3.1
+django-phone-field==1.8.1
 django-ses==3.0.1
 docutils==0.15.2
 EB==0.1.5
@@ -24,8 +27,10 @@ numpy==1.21.2
 pathspec==0.9.0
 psycopg2==2.9.3
 pyasn1==0.4.8
+pypiwin32==223
 python-dateutil==2.8.2
 pytz==2022.1
+pywin32==303
 PyYAML==5.4.1
 requests==2.26.0
 rsa==4.7.2
