@@ -34,7 +34,7 @@ body {
     background-color: #ebe3db;
     padding: 0;
     border-top: .5rem solid #327dc8;
-    border-bottom: 1rem solid #327dc8;
+    border-bottom: 1rem solid #000000;
     overflow-y:scroll;
 }
 
@@ -87,7 +87,6 @@ h4 {
 h5 {
     color: #00528c;
 }
-
 
 .site-menu-item {
     color: #00528c;
@@ -182,6 +181,7 @@ h5 {
     color: #327dc8;
     font-size: 1.5rem;
     margin: 0px 10px 0px 10px;
+    list-style-type: none;
 }
 
 .selector-title:hover {
@@ -192,6 +192,11 @@ h5 {
     color: #00528c;
     font-size: 1.2rem;
     margin: 0px 0px 0px 30px;
+    list-style-type: none;
+}
+
+.custom-radio-list {
+    list-style-type: none;
 }
 
 .field-area {
@@ -347,51 +352,7 @@ h5 {
     color: #327dc8;
 }
 
-/* TESTING  */
-
-
-
-/* Style the video: 100% width and height to cover the entire window */
-/* #myVideo {
-    position: center;
-    top: 250px;
-    left: 0;
-    min-width: 100%;
-    min-height: 100%;
-  } */
-  
-  /* Add some content at the bottom of the video/page */
-  /* .content {
-    position: fixed;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
-    color: #f1f1f1;
-    width: 100%;
-    padding: 20px;
-  } */
-  
-  /* Style the button used to pause/play the video */
-  /* #myBtn {
-    width: 200px;
-    font-size: 18px;
-    padding: 10px;
-    border: none;
-    background: #000;
-    color: #fff;
-    cursor: pointer;
-  } */
-  
-  .home-container {
-    /* border: 1px solid #92b901;
-    display: block;
-    min-height: 100%;
-    min-width: 100%;
-    text-align: center; */
-
-    /* max-width: 80%; */
-}
-
-  video{
+video{
     background-position: top center;
     position:relative;
     right: 0px; 
@@ -403,5 +364,6 @@ h5 {
     width: auto;
     background-size: cover;
     margin: 0px;
-    padding: 0px;}
+    padding: 0px;
+}
       
