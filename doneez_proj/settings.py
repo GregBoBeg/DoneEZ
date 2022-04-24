@@ -180,7 +180,7 @@ USE_TZ = True
 # STATIC FILE SETTINGS FOR AWS DEPLOYMENTS:
 STATIC_URL = '/static/'
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
-STATIC_ROOT  = os.path.join(PROJECT_ROOT, 'doneez_app/static/doneez_app')
+STATIC_ROOT  = os.path.join(PROJECT_ROOT, 'doneez_app/static')
 # STATIC_ROOT=os.path.join(BASE_DIR,'static/')
 
 # Troubleshooting Result Notes:
