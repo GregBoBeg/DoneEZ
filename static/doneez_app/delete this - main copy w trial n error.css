@@ -58,10 +58,33 @@ a:hover {
     cursor: pointer;
 }
 
+
 a:focus {
     border-radius: 3px 3px 3px 3px;
     outline: none;
     box-shadow: 0px 0px 4px #327dc8; 
+}
+
+a.logo-anchor {
+    text-decoration: none;
+
+}
+
+a.logo-anchor:hover {
+    /* background-color: transparent; */
+    /* background: transparent; */
+    color: black;
+    background: red;
+    border-radius: 2px 2px 2px 2px;
+    cursor: pointer;
+
+}
+
+a.logo-anchor:focus {
+    border: none;
+    outline: none;
+    border-color: white;
+    box-shadow: 0 0 10px #000000;
 }
 
 
@@ -223,7 +246,7 @@ h5 {
     top: 0;
   }
 
-  .glowing-border {
+.glowing-border {
     border: 2px solid #dadada;
     border-radius: 7px;
     padding: .6rem;
@@ -305,11 +328,6 @@ h5 {
 /*    Imagery    */
 
 
-.logo a:hover {
-    background-color: transparent;
-}
-
-
 .b2bMap{
     border: 1px solid rgb(165, 165, 165);
 }
@@ -366,4 +384,4 @@ video{
     margin: 0px;
     padding: 0px;
 }
-      
+

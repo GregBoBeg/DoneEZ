@@ -9,6 +9,7 @@
 #e8effd - Blue Light
 #327dc8 - Blue
 #00528c - Blue Dark
+#002C4D - Blue Very Dark
 
 #37332f - Brown Dark
 #ebe3db - Brown Light
@@ -34,7 +35,7 @@ body {
     background-color: #ebe3db;
     padding: 0;
     border-top: .5rem solid #327dc8;
-    border-bottom: 1rem solid #000000;
+    border-bottom: 1rem solid #002C4D;
     overflow-y:scroll;
 }
 
@@ -223,7 +224,7 @@ h5 {
     top: 0;
   }
 
-  .glowing-border {
+.glowing-border {
     border: 2px solid #dadada;
     border-radius: 7px;
     padding: .6rem;
@@ -246,8 +247,6 @@ h5 {
     border-bottom-width: 1px;
     border-bottom-color: 37332f;
 }
-
-
 
 .container-menu {
     background-color: white;
@@ -305,21 +304,22 @@ h5 {
 /*    Imagery    */
 
 
-.logo a:hover {
+.logo-anchor {
+    text-decoration: none;
+}
+
+.logo-anchor:hover {
     background-color: transparent;
 }
 
+.logo-anchor:focus {
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
 
 .b2bMap{
     border: 1px solid rgb(165, 165, 165);
-}
-
-.carousel-text {
-    color: #00528c;
-    border: 0;
-    color: white; 
-    text-shadow: 1px 1px 3px black
-
 }
 
 .responsiveImage {
@@ -333,11 +333,6 @@ h5 {
     margin-right: 1.5rem;
 }
 
-.clearfix::after {
-    content: "";
-    clear: both;
-    display: table;
-}
 
 .EZImage {
     height: auto;
@@ -346,6 +341,12 @@ h5 {
     border-color: white;
     border-radius: 7px;
     box-shadow: 0 0 1rem lightgray;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
 }
 
 .FAIcon {
@@ -366,4 +367,13 @@ video{
     margin: 0px;
     padding: 0px;
 }
-      
+
+/* 
+.carousel-text {
+    color: #00528c;
+    border: 0;
+    color: white; 
+    text-shadow: 1px 1px 3px black
+
+}
+ */

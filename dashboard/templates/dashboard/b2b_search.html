@@ -80,39 +80,40 @@
                             <input type="text" class="form-control" id="FormItemSearch" name="FormItemSearch" value="{{form_items_search}}" placeholder="Search Vendor Products and Services" autocomplete="nope" autofocus>
                             <label for="floatingInput">Search Vendor Products and Services</label>
                         </div>
-                        <div>  
-                            <fieldset id="FormDistanceRadio">
-                                Search Radius:
-
-                                {% if form_distance_selected == 50 %}
-                                <input type="radio" name="FormDistanceRadio" id="Miles50" value="50" onClick="checkboxSelected({{ business_type_selected }});" checked="checked">
-                                {% else %}
-                                <input type="radio" name="FormDistanceRadio" id="Miles50" value="50" onClick="checkboxSelected({{ business_type_selected }});">
-                                {% endif %}
-                                <label for= "Miles50">50 Miles</label>
-                                
-                                {% if form_distance_selected == 100 %}
-                                <input type="radio" name="FormDistanceRadio" id="Miles100" value="100" onClick="checkboxSelected({{ business_type_selected }});" checked="checked">
-                                {% else %}
-                                <input type="radio" name="FormDistanceRadio" id="Miles100" value="100" onClick="checkboxSelected({{ business_type_selected }});">
-                                {% endif %}
-                                <label for= "Miles100">100 Miles</label>
-
-                                {% if form_distance_selected == 9999 %}
-                                <input type="radio" name="FormDistanceRadio" id="MilesAll" value="9999" onClick="checkboxSelected({{ business_type_selected }});" checked="checked">
-                                {% else %}
-                                <input type="radio" name="FormDistanceRadio" id="MilesAll" value="9999" onClick="checkboxSelected({{ business_type_selected }});">
-                                {% endif %}
-                                <label for= "MilesAll">All Vendors</label>
-                            </fieldset>
-                        </div>
                         <div>
                             <!-- Display the Map -->
                             <div class="b2bMap">
                             {{ b2b_map|safe }}
                             </div>
-                            <ul class="p-0">
+                            <div>  
+                                <fieldset id="FormDistanceRadio">
+                                    Search Radius:
+
+                                    {% if form_distance_selected == 50 %}
+                                    <input type="radio" name="FormDistanceRadio" id="Miles50" value="50" onClick="checkboxSelected({{ business_type_selected }});" checked="checked">
+                                    {% else %}
+                                    <input type="radio" name="FormDistanceRadio" id="Miles50" value="50" onClick="checkboxSelected({{ business_type_selected }});">
+                                    {% endif %}
+                                    <label for= "Miles50">50 Miles</label>
+                                    
+                                    {% if form_distance_selected == 100 %}
+                                    <input type="radio" name="FormDistanceRadio" id="Miles100" value="100" onClick="checkboxSelected({{ business_type_selected }});" checked="checked">
+                                    {% else %}
+                                    <input type="radio" name="FormDistanceRadio" id="Miles100" value="100" onClick="checkboxSelected({{ business_type_selected }});">
+                                    {% endif %}
+                                    <label for= "Miles100">100 Miles</label>
+
+                                    {% if form_distance_selected == 9999 %}
+                                    <input type="radio" name="FormDistanceRadio" id="MilesAll" value="9999" onClick="checkboxSelected({{ business_type_selected }});" checked="checked">
+                                    {% else %}
+                                    <input type="radio" name="FormDistanceRadio" id="MilesAll" value="9999" onClick="checkboxSelected({{ business_type_selected }});">
+                                    {% endif %}
+                                    <label for= "MilesAll">All Vendors</label>
+                                </fieldset>
                                 <br>
+                            </div>
+                            <ul class="p-0">
+                                <hr>
                                 <!-- List Businesses that matched our search and filter criteria -->
                                 {% for business in object_list %}
                                     <!-- 
@@ -123,11 +124,11 @@
 
                                         <li class="filter-results-list">
                                             {% if business.business_featured %}
-                                            <a href="/dashboard/vendor-profile/{{ business.id}}" class="filter-result-featured-title">{{ business.business_name }}</a>
+                                            <a href="/dashboard/vendor-profile/{{ business.id}}" class="filter-result-featured-title">{{ business.business_name }}</a> ({{business.distance_between|stringformat:"0.1f"}} Miles)
                                             <br>
                                             <span class="filter-result-featured ps-4">  {{ business.business_tagline }}</span>
                                             {% else %}
-                                            <span class="filter-result"><a href="/dashboard/vendor-profile/{{ business.id}}" class="filter-result">{{ business.business_name }}</a> <span>- {{ business.business_tagline }}</span>
+                                            <span class="filter-result"><a href="/dashboard/vendor-profile/{{ business.id}}" class="filter-result">{{ business.business_name }}</a> ({{business.distance_between|stringformat:"0.1f"}} Miles) <span>- {{ business.business_tagline }}</span>
                                             {% endif %}
                                             <br>
                                             <span class="filter-result ps-4">{{ business.business_phone1 }}</span> <span class="filter-result ps-4">{{ business.business_email }}</span>

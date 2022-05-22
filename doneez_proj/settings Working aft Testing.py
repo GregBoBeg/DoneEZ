@@ -54,12 +54,12 @@ if EC2_PRIVATE_IP:
 from django.core.mail import send_mail
 
 # Django SMTP Email Configuration, Secured with AWS Secrets Manager
-DEFAULT_FROM_EMAIL = 'gregruiz@me.com'
+DEFAULT_FROM_EMAIL = 'team@doneez.com'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp-relay.sendinblue.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'gregruiz@me.com'
+EMAIL_HOST_USER = 'team@doneez.com'
 EMAIL_HOST_PASSWORD = str(appsecrets["SMTPPassword"])
 print('------ GR SMTP Settings.py Just connected to email server')
 # DEFAULT_FROM_EMAIL = appsecrets["SMTPEmailFrom"]
@@ -74,8 +74,8 @@ print('------ GR SMTP Settings.py Just connected to email server')
 # send_mail(
 #     'DoneEZ - Account Approved!',
 #     'Congratulations!  Your DoneEZ account has been approved and activated.  Visit DoneEZ.com to access your new account.',
-#     'gregruiz@me.com',
-#     ['gregruiz@me.com'],
+#     'team@doneez.com',
+#     ['team@doneez.com'],
 #     fail_silently=False,
 # )
 
@@ -94,8 +94,8 @@ print('------ GR SMTP Settings.py Just connected to email server')
 # # msg = MIMEText('This is test mail')
 # msg = EmailMessage()
 # msg['Subject'] = 'Test mail'
-# msg['From'] = 'gregruiz@me.com'
-# msg['To'] = 'gregruiz@me.com'
+# msg['From'] = 'team@doneez.com'
+# msg['To'] = 'team@doneez.com'
 # msg.set_content('Here is the test message content you have been waiting for!!!')
 
 # msg.add_alternative("""\

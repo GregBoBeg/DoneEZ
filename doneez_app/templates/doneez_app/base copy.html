@@ -31,20 +31,34 @@
     <body>
 
         <div class="main-site-container">
-            <div class="container-fluid ms-0 ps-0 me-0 pe-0">
+            <div class="container-fluid ps-0">
     
                 <!-- Menu --> 
     
-                <div class="row ms-0 ps-0 me-0 pe-0">
-                    <div class="col ms-0 ps-0 me-0 pe-0">
-                        {% block menu %}{% endblock %}
+                <div class="row">
+                    <div class="col-auto logo" style="width:150px;">
+                        {% if request.path == "/" %}
+                            <span class="mt-0 mb-1 py-0 ms-3 ps-1"><img src="/media/site-images/Logo DEZ v02 Sm.png"></span>
+                        {% else %}
+                            <a class="navbar navbar-expand-lg container-menu navbar-light mt-0 mb-1 py-0 ms-3" href="/"><img src="/media/site-images/Logo DEZ v02 Sm.png"></a>
+                        {% endif %}
                     </div>
+                    <div class="col">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-auto">
+                                    {% block menu %}{% endblock %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="width:150px;"></div>
                 </div>
     
                 <!-- Body Content -->
 
-                <div class="row justify-content-center mt-2 ms-0 ps-0 me-0 pe-0">
-                    <div class="col justify-content-center p-0 me-0 pe-0">
+                <div class="row justify-content-center mt-5">
+                    <div class="col justify-content-center p-0">
                         {% if messages %}
                             {% for message in messages %}
                                 <!--
@@ -71,9 +85,9 @@
         </div>
     
         <!-- Footer --> 
-        <div class="container px-0">
-            <div class="row justify-content-center site-footer mx-0 px-0">
-                <div class="col-auto justify-content-center mx-0 px-0">
+        <div class="container">
+            <div class="row justify-content-center site-footer">
+                <div class="col-auto justify-content-center">
                     {% block footer %}{% endblock %}
                 </div>
             </div>

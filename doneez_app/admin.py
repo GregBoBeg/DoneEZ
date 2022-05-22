@@ -16,16 +16,20 @@ from django.conf import settings
 
 
 
+# Item
+
 class ItemInline(admin.TabularInline):
     model = Item
     extra = 3
     formfield_overrides = {
-        models.TextField: {'widget': Textarea(attrs={'rows':1, 'cols':150})},
+        models.TextField: {'widget': Textarea(attrs={'rows':1, 'cols':100})},
     }
     verbose_name = "Product or Service Item"
     verbose_name_plural = "List of Items for this Category"
 
 
+
+# Category
 
 class ItemCategoryAdmin(admin.ModelAdmin):
     list_display = ['business_type','item_category']
@@ -36,6 +40,9 @@ class ItemCategoryAdmin(admin.ModelAdmin):
     verbose_name = "Category Name"
     verbose_name_plural = "Categories"
 
+
+
+# Business
 
 class BusinessAdmin(admin.ModelAdmin):
     form = BusinessForm

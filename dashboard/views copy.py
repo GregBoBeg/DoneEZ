@@ -273,7 +273,7 @@ def business_profile(request):
 
             if form.is_valid():
                 form.save()
-                messages.success(request, 'Your profile has been updated successfully.  Please continue.')
+                messages.success(request, 'Your profile has been updated successfully.')
 
                 # This signup stage is complete.  Specify the next signup stage.
                 if request.user.business.signup_stage == "PROFILE":
@@ -471,7 +471,7 @@ def b2b_search(request):
         # Return all records matching the filter & search provided on the form
 
         search_vector_phrase = SearchQuery(form_items_search, search_type='phrase')
-
+        print(search_vector_phrase)
         object_list = Business.objects.filter(
             Q(items_offered__in=form_items_filter) |
             Q(items_offered__item_title__icontains=form_items_search) |
@@ -697,18 +697,6 @@ def account_close(request):
 
 def account_closed(request):
     return render(request, 'dashboard/account-closed.html')
-
-
-
-# Contact Admin
-
-@login_required
-def contact_admin(request):
-    # Only allow access if signup is "DONE".
-    if request.user.business.signup_stage != "DONE":
-        return redirect(to='dashboard-home')
-    else:
-        return render(request, 'dashboard/contact-admin.html')
 
 
 

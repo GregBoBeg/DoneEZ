@@ -38,6 +38,7 @@ urlpatterns = [
      path('business-map-address/', views.business_map_address, name='business-map-address'),
      path('account-details/', views.account_details, name='account-details'),
      path('change-password/', views.change_password, name='change-password'),
+     path('contact-admin/', views.contact_admin, name='contact-admin'),
      path('business-settings/', views.business_settings, name='business-settings'),
      path('account-close/', views.account_close, name='account-close'),
      path('account-closed/', views.account_closed, name='account-closed'),
