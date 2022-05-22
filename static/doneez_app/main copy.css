@@ -1,0 +1,413 @@
+/*
+
+    This CSS file applies to the entire site and OVERRIDES/CUSTOMIZES Bootstrap Defaults
+
+*/
+
+/* Color Palette 
+
+#e8effd - Blue Light
+#327dc8 - Blue
+#00528c - Blue Dark
+
+#37332f - Brown Dark
+#ebe3db - Brown Light
+
+*/
+
+
+
+ /*----------------*/
+/* General Styles */
+
+html {
+    font-family: "Open Sans", sans-serif; 
+    font-size: 1rem;
+    line-height: 1.5rem;
+    color: #00528c;
+    background-color: #00528c;
+}
+
+body {
+    height: 100%;
+    margin: 100px 0px 100px 0px;
+    background-color: #ebe3db;
+    padding: 0;
+    border-top: .5rem solid #327dc8;
+    border-bottom: 1rem solid #000000;
+    overflow-y:scroll;
+}
+
+p {
+    margin: 1rem 0rem 1rem 0rem;
+    color: #37332f;
+}
+
+
+a {
+    color: #00528c; 
+    text-decoration: none;
+    padding: 1px 4px 1px 4px;
+    white-space: nowrap;
+}
+
+a:hover {
+    color: white;
+    background: #327dc8;
+    border-radius: 2px 2px 2px 2px;
+    cursor: pointer;
+}
+
+a:focus {
+    border-radius: 3px 3px 3px 3px;
+    outline: none;
+    box-shadow: 0px 0px 4px #327dc8; 
+}
+
+
+h1 {
+    padding: 0.5rem 0rem 0.2rem 0rem;
+    color: #00528c;
+    border-bottom: 0.2px solid #00528c;
+}
+
+h2 {
+    color: #327dc8;
+}
+
+h3 {
+    color: #00528c;
+    margin: 15px 0px 0px 0px;
+}
+
+h4 {
+    color: #00528c;
+}
+
+h5 {
+    color: #00528c;
+}
+
+
+.site-menu-item {
+    color: #00528c;
+    padding: 1px 4px 1px 4px;
+    margin: 0px 4px 0px 4px;
+}
+
+.site-menu-item:hover {
+    background: #327dc8;
+    border-radius: 3px 3px 3px 3px;
+    color: white;
+}
+
+.form-instructions {
+    color: #00528c;
+    font-size: 1rem;
+}
+
+
+.filter-header {
+    white-space: nowrap;
+}
+.filter-category {
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.filter-list {
+    padding: 0px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.filter-list-item {
+    margin-left: 1rem;
+    list-style-type:none;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.filter-results-list {
+    list-style-type:none;
+}
+
+.filter-result {
+    text-decoration: none;
+}
+
+.filter-result-featured-title {
+    font-weight: bold;
+    color: #00528c;
+    font-size: 1.1rem;
+}
+
+.filter-result-featured {
+    color: #00528c;
+    font-size: 1.1rem;
+}
+
+
+ /*---------------*/
+/*    Buttons    */
+
+
+.btn-site {
+    background-color: #00528c;
+    border-color: #00528c;
+    color: white;
+}
+
+.btn-site:hover {
+    background-color: #327dc8;
+    border-color: #327dc8;
+    color: white;
+}
+
+.btn-site:focus {
+    background-color: #327dc8;
+    border-color: #327dc8;
+    color: white;
+}
+
+
+ /*---------------*/
+/*    Forms    */
+
+.form-label {
+    color: #ccc;
+}
+
+.selector-title {
+    color: #327dc8;
+    font-size: 1.5rem;
+    margin: 0px 10px 0px 10px;
+    list-style-type: none;
+}
+
+.selector-title:hover {
+    color: #00528c;
+}
+
+.selector-description {
+    color: #00528c;
+    font-size: 1.2rem;
+    margin: 0px 0px 0px 30px;
+    list-style-type: none;
+}
+
+.custom-radio-list {
+    list-style-type: none;
+}
+
+.field-area {
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.select-muted {
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding-left: 5px;
+    padding-right: 2px;
+    white-space: nowrap;
+}
+
+.select-muted select {
+    
+    width: 200px;
+    font-size: 15px;
+    border: 0;
+    height: 17px;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  .glowing-border {
+    border: 2px solid #dadada;
+    border-radius: 7px;
+    padding: .6rem;
+}
+
+.glowing-border:focus { 
+    outline: none;
+    border-color: #9ecaed;
+    box-shadow: 0 0 10px #9ecaed;
+}
+
+ /*-------------------*/
+/*    Containters    */
+
+
+.main-site-container {
+    background-color:white;
+    padding: 1rem 0rem 0rem 0rem;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: 37332f;
+}
+
+
+
+.container-menu {
+    background-color: white;
+    margin: 1rem 0rem 2rem 0rem;
+}
+
+.site-footer{
+    background-color: #ebe3db;
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+}
+
+.footer-container h3{
+    font-size: 1.2rem;
+}
+
+.card-header {
+    background-color: #e8effd;
+    color: #00528c;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.card-footer {
+    background-color: #e8effd;
+}
+
+#home-search-card {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 0px;
+    margin: 0px;
+}
+
+.partner-card {
+    border: 1px solid #e8effd;
+    border-radius: 3px;
+}
+
+.partner-card:hover {
+    border-color: #327dc8;
+
+}
+.partner-card-link:hover {
+    background: none;
+}
+
+.partner-card-link:focus {
+    background: none;
+    border: none;
+    box-shadow: none;
+}
+
+
+ /*---------------*/
+/*    Imagery    */
+
+
+.logo a:hover {
+    background-color: transparent;
+}
+
+
+.b2bMap{
+    border: 1px solid rgb(165, 165, 165);
+}
+
+.carousel-text {
+    color: #00528c;
+    border: 0;
+    color: white; 
+    text-shadow: 1px 1px 3px black
+
+}
+
+.responsiveImage {
+    height: auto;
+    border-style: solid;
+    border-width: 8px;
+    border-color: white;
+    border-radius: 7px;
+    box-shadow: 0 0 1rem lightgray;
+    float: left;
+    margin-right: 1.5rem;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.EZImage {
+    height: auto;
+    border-style: solid;
+    border-width: 5px;
+    border-color: white;
+    border-radius: 7px;
+    box-shadow: 0 0 1rem lightgray;
+}
+
+.FAIcon {
+    color: #327dc8;
+}
+
+/* TESTING  */
+
+
+
+/* Style the video: 100% width and height to cover the entire window */
+/* #myVideo {
+    position: center;
+    top: 250px;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+  } */
+  
+  /* Add some content at the bottom of the video/page */
+  /* .content {
+    position: fixed;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    color: #f1f1f1;
+    width: 100%;
+    padding: 20px;
+  } */
+  
+  /* Style the button used to pause/play the video */
+  /* #myBtn {
+    width: 200px;
+    font-size: 18px;
+    padding: 10px;
+    border: none;
+    background: #000;
+    color: #fff;
+    cursor: pointer;
+  } */
+  
+  .home-container {
+    /* border: 1px solid #92b901;
+    display: block;
+    min-height: 100%;
+    min-width: 100%;
+    text-align: center; */
+
+    /* max-width: 80%; */
+}
+
+  video{
+    background-position: top center;
+    position:relative;
+    right: 0px; 
+    bottom: -5px;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: 100;
+    height: auto;
+    width: auto;
+    background-size: cover;
+    margin: 0px;
+    padding: 0px;}
+      
