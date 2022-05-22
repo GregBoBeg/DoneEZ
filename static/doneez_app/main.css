@@ -353,7 +353,8 @@ h5 {
     color: #327dc8;
 }
 
-video{
+@media only screen and (min-width: 576px) {
+    video {
     background-position: top center;
     position:relative;
     right: 0px; 
@@ -367,6 +368,31 @@ video{
     margin: 0px;
     padding: 0px;
 }
+
+    .still-image {
+        display: none;
+    }
+}
+/* .still-image {
+    background-position: top center;
+    background-size: cover;
+    background-repeat: no-repeat;
+} */
+
+@media only screen and (max-width: 575px) {
+    .still-image {
+        background-image: url('/media/site-images/MechanicStillMobileV02.png');
+        background-position: top center;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+        
+    video {
+     display: none;
+    }
+  }
+
+
 
 /* 
 .carousel-text {
