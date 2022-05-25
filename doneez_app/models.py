@@ -1,10 +1,19 @@
 from django import forms
 from django.db import models
-from django.contrib.auth.models import User
 from django.core.validators import URLValidator
+from django.contrib.auth.models import AbstractUser, UserManager
+from django.conf import settings
 
-# Cleanup by removing, then retest:
-# from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
+
+
+class CustomUserManager(UserManager):
+    def get_by_natural_key(self, username):
+        case_insensitive_username_field = '{}__iexact'.format(self.model.USERNAME_FIELD)
+        return self.get(**{case_insensitive_username_field: username})
+
+
+class CustomUser(AbstractUser):
+    objects = CustomUserManager()
 
 
 class BusinessType(models.Model):
@@ -170,7 +179,7 @@ class Business(models.Model):
         ("11:30 pm", "11:30 pm"),
         ("Midnight", "Midnight"),
     )
-    user = models.OneToOneField(User,null=True, blank=True, on_delete=models.CASCADE)
+    user = models.OneToOneField(settings.AUTH_USER_MODEL,null=True, blank=True, on_delete=models.CASCADE)
     business_type = models.ForeignKey(BusinessType, null=True, verbose_name="Business Type", help_text="Select which type of business this is.", on_delete=models.CASCADE)
     signup_stage = models.CharField(max_length=10, choices=PARTNER_SIGNUP_STAGES, default='TYPE', help_text='Indicates where a new partner is in the signup process.')
     items_offered = models.ManyToManyField(Item, verbose_name="Items Offered", help_text="Select all corresponding items your business offers, so that your business can be found when customers search for these products/services.")

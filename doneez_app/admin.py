@@ -3,7 +3,9 @@ from django.contrib import admin
 from django.contrib.auth.models import Group
 from django.forms import CheckboxSelectMultiple
 
-from .models import BusinessType, Business, ItemCategory, Item
+from doneez_app.forms import CustomUserCreationForm
+
+from .models import BusinessType, Business, ItemCategory, Item, CustomUser
 from doneez_app.forms import BusinessForm
 from django.forms import Textarea
 from django.db import models
@@ -13,6 +15,19 @@ from django.utils.html import format_html, strip_tags
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from django.conf import settings
+from django.contrib.auth.admin import UserAdmin
+
+
+
+
+# CustomUser
+
+class CustomUserAdmin(UserAdmin):
+    model = CustomUser
+    add_form = CustomUserCreationForm
+    verbose_name = "User"
+    verbose_name_plural = "Users"
+
 
 
 
@@ -152,6 +167,7 @@ class BusinessAdmin(admin.ModelAdmin):
 
 
 
+admin.site.register(CustomUser, CustomUserAdmin)
 admin.site.register(BusinessType)
 admin.site.register(ItemCategory, ItemCategoryAdmin)
 admin.site.register(Business, BusinessAdmin)

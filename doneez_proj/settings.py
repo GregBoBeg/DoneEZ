@@ -90,8 +90,10 @@ INSTALLED_APPS = [
     # Since DoneEZ's users are businesses with needs beyond simple user account functionality, 
     # we have opted to use the name "Dashboard" for this app.
     'dashboard.apps.DashboardConfig',
-
 ]
+
+
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -121,6 +123,8 @@ TEMPLATES = [
     },
 ]
 
+
+AUTH_USER_MODEL = 'doneez_app.CustomUser'
 WSGI_APPLICATION = 'doneez_proj.wsgi.application'
 
 

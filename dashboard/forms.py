@@ -1,10 +1,9 @@
 # from tkinter import FLAT
 from django import forms
-from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, PasswordChangeForm
 from doneez_app.models import Business, BusinessType, Item, ItemCategory
 from django.utils.safestring import mark_safe
-
+from doneez_app.models import CustomUser
 
 
 #--- Signup Form ---#
@@ -36,8 +35,9 @@ class UserSignupForm(UserCreationForm):
     )
 
     class Meta:
-        model = User
+        model = CustomUser
         fields = ['username', 'first_name', 'last_name', 'email', 'password1', 'password2']
+        # fields = UserCreationForm.Meta.fields + ['username', 'first_name', 'last_name', 'email', 'password1', 'password2']
 
 
 
@@ -77,7 +77,7 @@ class LoginForm(AuthenticationForm):
     # remember_me = forms.BooleanField(required=False)
 
     class Meta:
-        model = User
+        model = CustomUser
         fields = ['username', 'password']
 
 
@@ -113,7 +113,7 @@ class UpdateAccountDetailsForm(forms.ModelForm):
     )
 
     class Meta:
-        model = User
+        model = CustomUser
         fields = ['username', 'first_name', 'last_name', 'email']
 
 

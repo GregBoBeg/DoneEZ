@@ -1,10 +1,13 @@
 from django import forms
-from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
-from .models import Business
+from .models import Business, CustomUser
 from django.forms.widgets import CheckboxSelectMultiple
 from django.forms.models import ModelMultipleChoiceField
-from .models import Business
+
+class CustomUserCreationForm(UserCreationForm):
+  class Meta:
+    model = CustomUser
+    fields = "__all__"
 
 class CustomSelectMultiple(ModelMultipleChoiceField):
     def label_from_instance(self, obj):
