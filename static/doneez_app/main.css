@@ -110,6 +110,7 @@ h5 {
 .filter-header {
     white-space: nowrap;
 }
+
 .filter-category {
     overflow: hidden;
     white-space: nowrap;
@@ -117,15 +118,22 @@ h5 {
 
 .filter-list {
     padding: 0px;
-    overflow: hidden;
-    white-space: nowrap;
 }
 
 .filter-list-item {
-    margin-left: 1rem;
+    margin-left: .5rem;
+    margin-right: 0px;
     list-style-type:none;
-    overflow: hidden;
-    white-space: nowrap;
+}
+
+.filter-list-item-label {
+    display: block;
+    padding-left: 1rem;
+    text-indent: -1.3rem;
+    
+}
+.filter-list-item-text {
+    margin-left: .5rem;
 }
 
 .filter-results-list {
@@ -198,6 +206,12 @@ h5 {
 
 .custom-radio-list {
     list-style-type: none;
+}
+
+.custom-radio-list-wrap {
+    list-style-type: none;
+    padding-left: 4rem;
+    text-indent: -1.2rem;
 }
 
 .field-area {
@@ -385,6 +399,9 @@ h5 {
         background-position: top center;
         background-size: cover;
         background-repeat: no-repeat;
+        right: 0px; 
+        margin: 0px;
+        padding: 0px;
     }
         
     video {
