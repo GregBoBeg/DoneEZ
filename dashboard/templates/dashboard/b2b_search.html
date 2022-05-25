@@ -117,7 +117,7 @@
                             <ul class="p-0">
                                 <hr>
                                 <!-- List Businesses that matched our search and filter criteria -->
-                                {% for business in object_list %}
+                                {% for business in object_list|dictsort:"distance_between" %}
                                     <!-- 
                                     Developer Note:  The "distance_between" value that we added to the object_list queryset can only be accessed within a loop (as done here),
                                     and cannot be used to "filter" the query (a Django limitation); therefore, we have to reference it from within a loop, each time we need it.

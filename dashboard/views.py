@@ -502,8 +502,6 @@ def b2b_search(request):
             b2b_map.fit_bounds(b2b_map.get_bounds(), padding=(30, 30))
             b2b_map = b2b_map._repr_html_()
 
-
-
         # Prepare the context values to be sent to the form
         business_type_list = BusinessType.objects.filter(b2b=True)
 

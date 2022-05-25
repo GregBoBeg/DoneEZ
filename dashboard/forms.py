@@ -205,7 +205,7 @@ class UpdateBusinessSettingsForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         self.request = kwargs.pop("request")
         super(UpdateBusinessSettingsForm, self).__init__(*args, **kwargs)
-        self.fields["items_offered"].widget = forms.CheckboxSelectMultiple()
+        self.fields["items_offered"].widget = forms.CheckboxSelectMultiple({'class': 'custom-radio-list-wrap'})
 
         # The following complex query returns a list of Items from which a business can select to determine
         # the types of products and services they want to offer. The list of Items to choose from is determined by
@@ -215,3 +215,5 @@ class UpdateBusinessSettingsForm(forms.ModelForm):
     class Meta:
         model = Business
         fields = ('items_offered',)
+
+

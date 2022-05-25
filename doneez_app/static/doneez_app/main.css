@@ -110,27 +110,14 @@ h5 {
 .filter-header {
     white-space: nowrap;
 }
+
 .filter-category {
     overflow: hidden;
     white-space: nowrap;
 }
 
-/* .filter-list {
-    padding: 0px;
-    overflow: hidden;
-    white-space: nowrap;
-}
-
-.filter-list-item {
-    margin-left: 1rem;
-    list-style-type:none;
-    overflow: hidden;
-    white-space: nowrap;
-} */
-
 .filter-list {
     padding: 0px;
-
 }
 
 .filter-list-item {
@@ -219,6 +206,12 @@ h5 {
 
 .custom-radio-list {
     list-style-type: none;
+}
+
+.custom-radio-list-wrap {
+    list-style-type: none;
+    padding-left: 4rem;
+    text-indent: -1.2rem;
 }
 
 .field-area {
