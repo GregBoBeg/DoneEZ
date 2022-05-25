@@ -115,7 +115,7 @@ h5 {
     white-space: nowrap;
 }
 
-/* .filter-list {
+.filter-list {
     padding: 0px;
     overflow: hidden;
     white-space: nowrap;
@@ -126,27 +126,6 @@ h5 {
     list-style-type:none;
     overflow: hidden;
     white-space: nowrap;
-} */
-
-.filter-list {
-    padding: 0px;
-
-}
-
-.filter-list-item {
-    margin-left: .5rem;
-    margin-right: 0px;
-    list-style-type:none;
-}
-
-.filter-list-item-label {
-    display: block;
-    padding-left: 1rem;
-    text-indent: -1.3rem;
-    
-}
-.filter-list-item-text {
-    margin-left: .5rem;
 }
 
 .filter-results-list {
