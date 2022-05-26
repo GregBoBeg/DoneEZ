@@ -210,9 +210,13 @@ h5 {
 
 .custom-radio-list-wrap {
     list-style-type: none;
-    padding-left: 4rem;
     text-indent: -1.2rem;
 }
+
+.custom-radio-list-wrap > [type=checkbox] {
+    padding-left: 4rem;
+}
+  
 
 .field-area {
     border: 1px solid #ccc;
