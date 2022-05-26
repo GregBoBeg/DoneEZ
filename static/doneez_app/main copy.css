@@ -9,6 +9,7 @@
 #e8effd - Blue Light
 #327dc8 - Blue
 #00528c - Blue Dark
+#002C4D - Blue Very Dark
 
 #37332f - Brown Dark
 #ebe3db - Brown Light
@@ -34,7 +35,7 @@ body {
     background-color: #ebe3db;
     padding: 0;
     border-top: .5rem solid #327dc8;
-    border-bottom: 1rem solid #000000;
+    border-bottom: 1rem solid #002C4D;
     overflow-y:scroll;
 }
 
@@ -88,7 +89,6 @@ h5 {
     color: #00528c;
 }
 
-
 .site-menu-item {
     color: #00528c;
     padding: 1px 4px 1px 4px;
@@ -110,6 +110,7 @@ h5 {
 .filter-header {
     white-space: nowrap;
 }
+
 .filter-category {
     overflow: hidden;
     white-space: nowrap;
@@ -117,15 +118,22 @@ h5 {
 
 .filter-list {
     padding: 0px;
-    overflow: hidden;
-    white-space: nowrap;
 }
 
 .filter-list-item {
-    margin-left: 1rem;
+    margin-left: .5rem;
+    margin-right: 0px;
     list-style-type:none;
-    overflow: hidden;
-    white-space: nowrap;
+}
+
+.filter-list-item-label {
+    display: block;
+    padding-left: 1rem;
+    text-indent: -1.3rem;
+    
+}
+.filter-list-item-text {
+    margin-left: .5rem;
 }
 
 .filter-results-list {
@@ -200,6 +208,12 @@ h5 {
     list-style-type: none;
 }
 
+.custom-radio-list-wrap {
+    list-style-type: none;
+    padding-left: 4rem;
+    text-indent: -1.2rem;
+}
+
 .field-area {
     border: 1px solid #ccc;
     border-radius: 3px;
@@ -224,7 +238,7 @@ h5 {
     top: 0;
   }
 
-  .glowing-border {
+.glowing-border {
     border: 2px solid #dadada;
     border-radius: 7px;
     padding: .6rem;
@@ -247,8 +261,6 @@ h5 {
     border-bottom-width: 1px;
     border-bottom-color: 37332f;
 }
-
-
 
 .container-menu {
     background-color: white;
@@ -306,21 +318,22 @@ h5 {
 /*    Imagery    */
 
 
-.logo a:hover {
+.logo-anchor {
+    text-decoration: none;
+}
+
+.logo-anchor:hover {
     background-color: transparent;
 }
 
+.logo-anchor:focus {
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
 
 .b2bMap{
     border: 1px solid rgb(165, 165, 165);
-}
-
-.carousel-text {
-    color: #00528c;
-    border: 0;
-    color: white; 
-    text-shadow: 1px 1px 3px black
-
 }
 
 .responsiveImage {
@@ -334,11 +347,6 @@ h5 {
     margin-right: 1.5rem;
 }
 
-.clearfix::after {
-    content: "";
-    clear: both;
-    display: table;
-}
 
 .EZImage {
     height: auto;
@@ -349,55 +357,18 @@ h5 {
     box-shadow: 0 0 1rem lightgray;
 }
 
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
 .FAIcon {
     color: #327dc8;
 }
 
-/* TESTING  */
-
-
-
-/* Style the video: 100% width and height to cover the entire window */
-/* #myVideo {
-    position: center;
-    top: 250px;
-    left: 0;
-    min-width: 100%;
-    min-height: 100%;
-  } */
-  
-  /* Add some content at the bottom of the video/page */
-  /* .content {
-    position: fixed;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
-    color: #f1f1f1;
-    width: 100%;
-    padding: 20px;
-  } */
-  
-  /* Style the button used to pause/play the video */
-  /* #myBtn {
-    width: 200px;
-    font-size: 18px;
-    padding: 10px;
-    border: none;
-    background: #000;
-    color: #fff;
-    cursor: pointer;
-  } */
-  
-  .home-container {
-    /* border: 1px solid #92b901;
-    display: block;
-    min-height: 100%;
-    min-width: 100%;
-    text-align: center; */
-
-    /* max-width: 80%; */
-}
-
-  video{
+@media only screen and (min-width: 576px) {
+    video {
     background-position: top center;
     position:relative;
     right: 0px; 
@@ -409,5 +380,43 @@ h5 {
     width: auto;
     background-size: cover;
     margin: 0px;
-    padding: 0px;}
-      
+    padding: 0px;
+}
+
+    .still-image {
+        display: none;
+    }
+}
+/* .still-image {
+    background-position: top center;
+    background-size: cover;
+    background-repeat: no-repeat;
+} */
+
+@media only screen and (max-width: 575px) {
+    .still-image {
+        background-image: url('/media/site-images/MechanicStillMobileV02.png');
+        background-position: top center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        right: 0px; 
+        margin: 0px;
+        padding: 0px;
+    }
+        
+    video {
+     display: none;
+    }
+  }
+
+
+
+/* 
+.carousel-text {
+    color: #00528c;
+    border: 0;
+    color: white; 
+    text-shadow: 1px 1px 3px black
+
+}
+ */
