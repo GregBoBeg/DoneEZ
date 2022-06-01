@@ -7,7 +7,7 @@
             <a class="logo-anchor p-0 mt-0 mb-1 ms-4 me-0" href="/"><img src="/media/site-images/Logo DEZ v02 Sm.png"></a>
         {% endif %}
     </div>
-
+    {% if user.is_authenticated %}
     <button class="navbar-toggler align-top" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon align-top"></span>
     </button>
@@ -47,4 +47,5 @@
             </li>
         </ul>
     </div>
+    {% endif %}
 </nav>            
