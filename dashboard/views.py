@@ -537,6 +537,7 @@ def b2b_search(request):
 
 # Vendor Profile
 
+@login_required
 def vendor_profile(request,vendor_business_id):
 
     business_object = Business.objects.get(id = vendor_business_id)
