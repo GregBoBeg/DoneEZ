@@ -34,6 +34,7 @@ DEBUG = True
 ALLOWED_HOSTS = [
     appsecrets["DjangoHost"],
     'awseb-awseb-izpbd03l3kpe-841948061.us-west-1.elb.amazonaws.com',
+    'dualstack.awseb-awseb-izpbd03l3kpe-841948061.us-west-1.elb.amazonaws.com',
     'localhost',
     'doneez.com',
     'www.doneez.com',
