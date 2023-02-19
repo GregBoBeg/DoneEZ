@@ -257,7 +257,7 @@ class Business(models.Model):
     business_name = models.CharField(max_length=100, verbose_name="Business Name")
     business_phone1 = models.CharField(blank=True, max_length=20, verbose_name="Primary Phone", help_text="Enter your business' primary phone number to be displayed publicly online.")
     business_email = models.EmailField(max_length=100, verbose_name="Business Email", help_text="Enter the business email address where customers can send emails.")
-    business_website = models.URLField(max_length=100, verbose_name="Website Address", help_text="Enter the business website.")
+    business_website = models.URLField(max_length=100, verbose_name="Website Address or Referral Link", help_text="Enter your business web address.  If you have a referral link, please supply it here, instead of your web address.")
     business_address_street1 = models.CharField(max_length=100, verbose_name="Street Address Line 1")
     business_address_street2 = models.CharField(max_length=100, blank=True, verbose_name="Street Address Line 2")
     business_address_city = models.CharField(max_length=50, verbose_name="City")
