@@ -310,12 +310,17 @@ def business_map_address(request):
                 # Get and Save Latitude and Longitude of Address
                 try:
                     
-                    loc =  (form.cleaned_data.get('business_address_street1') + ", " + 
-                            form.cleaned_data.get('business_address_city') + " " + 
-                            form.cleaned_data.get('business_address_state') + " " + 
+                    loc =  (form.cleaned_data.get('business_address_street1') + "," + 
+                            form.cleaned_data.get('business_address_city') + "," + 
+                            form.cleaned_data.get('business_address_state') + "," + 
                             form.cleaned_data.get('business_address_zip'))
 
+                    print("Concatinated: "+loc)
+
                     myaddr = Nominatim(user_agent = 'DoneEZ').geocode(loc)
+                    print(myaddr)
+                    print(myaddr.longitude)
+                    print(myaddr.latitude)
                     Business.objects.filter(pk=request.user.business.id).update(**{
                         'business_address_longitude':myaddr.longitude,
                         'business_address_latitude':myaddr.latitude                    

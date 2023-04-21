@@ -115,6 +115,7 @@ class BusinessAdmin(admin.ModelAdmin):
             'fields': [
                 'business_phone1',
                 'business_email',
+                'business_website',
                 'business_locations',
                 'business_address_street1',
                 'business_address_street2',
