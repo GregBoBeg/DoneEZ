@@ -87,9 +87,9 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
 
 class BusinessType(models.Model):
     B2B_CHOICES = (
-        ('RETAIL', 'This business serves Retail Customers'),
-        ('SUPPLIER', 'This business supplies other businesses with parts and supplies'),
-        ('SERVICE', 'This business offers affiliate products and services to other businesses')
+        ('RETAIL', 'Retail'),
+        ('SUPPLIER', 'Supplier'),
+        ('SERVICE', 'Service')
     )
     business_type = models.CharField(max_length=50, verbose_name="Type of Business", help_text='Give a title to this new type of business.')
     business_type_description = models.CharField(max_length=250, verbose_name="Business Type Description", help_text='Provide the text that will describe this Business Type to Partners during the Signup process.<br> Ex:  We provide automotive services on retail consumer vehicles.')
