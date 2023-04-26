@@ -1,0 +1,62 @@
+{% extends "dashboard/dashboard-base.html" %}
+
+{% block content %}
+
+<div class="container mb-5">
+    <div class="row">
+        <div class="col">
+
+            <form name="servicesForm" action="{% url 'services' %}" method="GET" class="form-floating">
+            <!-- Cross Site Request Forgery Security Token -->
+            {% csrf_token %}
+
+            <div>
+                <h1 class="display-4">Services - Temporarily Under Construction</h1>
+                <p>We've teamed up with other companies to offer discounted services for your business needs.</p>
+            </div>
+
+            <div class="container">
+                <div class="row justify-content-center">
+
+                    <div class="col" style="min-width: 300px; max-width: 900px;"> <!-- Use this div to set the column width -->
+                        <h4>Search Terms</h4>
+                        <!-- Search Field -->
+                            <ul class="p-0">
+                                <hr>
+                                <!-- List Businesses that matched our search and filter criteria -->
+                                {% for business in object_list %}
+                                    <!-- 
+                                    Developer Note:  The "distance_between" value that we added to the object_list queryset can only be accessed within a loop (as done here),
+                                    and cannot be used to "filter" the query (a Django limitation); therefore, we have to reference it from within a loop, each time we need it.
+                                    -->
+
+                                        <li class="filter-results-list">
+                                            {% if business.business_featured %}
+                                            <a href="/dashboard/vendor-profile/{{ business.id}}" class="filter-result-featured-title">{{ business.business_name }}</a> ({{business.distance_between|stringformat:"0.1f"}} Miles)
+                                            <br>
+                                            <span class="filter-result-featured ps-4">  {{ business.business_tagline }}</span>
+                                            {% else %}
+                                            <span class="filter-result"><a href="/dashboard/vendor-profile/{{ business.id}}" class="filter-result">{{ business.business_name }}</a> ({{business.distance_between|stringformat:"0.1f"}} Miles) <span>- {{ business.business_tagline }}</span>
+                                            {% endif %}
+                                            <br>
+                                            <span class="filter-result ps-4">{{ business.business_phone1 }}</span> <span class="filter-result ps-4">{{ business.business_email }}</span>
+                                        </li>
+                                        <hr>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+{% endblock content %}
+
+
+  

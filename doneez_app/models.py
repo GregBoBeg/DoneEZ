@@ -86,9 +86,14 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
 
 
 class BusinessType(models.Model):
+    B2B_CHOICES = (
+        ('RETAIL', 'This business serves Retail Customers'),
+        ('SUPPLIER', 'This business supplies other businesses with parts and supplies'),
+        ('SERVICE', 'This business offers affiliate products and services to other businesses')
+    )
     business_type = models.CharField(max_length=50, verbose_name="Type of Business", help_text='Give a title to this new type of business.')
     business_type_description = models.CharField(max_length=250, verbose_name="Business Type Description", help_text='Provide the text that will describe this Business Type to Partners during the Signup process.<br> Ex:  We provide automotive services on retail consumer vehicles.')
-    b2b = models.BooleanField(default=False, verbose_name="B2B",help_text='Indicates whether this is a B2B business, where its products and services are offered to other businesses only.  If selected, the business will only appear in B2B searches.')
+    b2b = models.CharField(max_length=10, default="RETAIL", verbose_name="B2B", choices=B2B_CHOICES, help_text='Indicates whether this is a B2B business, where its products and services are offered to other businesses only.  If selected, the business will only appear in B2B searches.')
     pending_default = models.BooleanField(default=False, verbose_name="Requires Account Approval",help_text='Indicates whether this Business-Type will require the Site Admin to approve the account.')
     class Meta:
         verbose_name = "Business Type"

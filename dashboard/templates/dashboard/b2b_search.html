@@ -11,7 +11,7 @@
             {% csrf_token %}
 
             <div>
-                <h1 class="display-4">Vendor Search</h1>
+                <h1 class="display-4">Supplier Search - Temporarily Under Construction</h1>
                 <p>Search other partners on the DoneEZ platform to find discounted products and services for your business.</p>
             </div>
 
@@ -19,7 +19,7 @@
                 <div class="row justify-content-center">
                     <div class="col" style="min-width: 300px; max-width: 300px;"> <!-- Use this div to set the column width -->
 
-
+                        <h4>Filters</h4>
                         <!-- Accordion -->
                         <div class="accordion mb-3" id="b2bFilterAccordion">
                             <input type="hidden" id="BusinessTypeSelected" name="BusinessTypeSelected" value="{{business_type_selected}}">
@@ -76,11 +76,11 @@
                     </div>
 
                     <div class="col" style="min-width: 300px; max-width: 900px;"> <!-- Use this div to set the column width -->
-
+                        <h4>Search Terms</h4>
                         <!-- Search Field -->
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="FormItemSearch" name="FormItemSearch" value="{{form_items_search}}" placeholder="Search Vendor Products and Services" autocomplete="nope" autofocus>
-                            <label for="floatingInput">Search Vendor Products and Services</label>
+                            <input type="text" class="form-control" id="FormItemSearch" name="FormItemSearch" value="{{form_items_search}}" placeholder="Search Supplier Products and Services" autocomplete="nope" autofocus>
+                            <label for="floatingInput">Search Supplier Products and Services</label>
                         </div>
                         <div>
                             <!-- Display the Map -->
@@ -91,26 +91,26 @@
                                 <fieldset id="FormDistanceRadio">
                                     Search Radius:
 
-                                    {% if form_distance_selected == 50 %}
-                                    <input type="radio" name="FormDistanceRadio" id="Miles50" value="50" onClick="checkboxSelected({{ business_type_selected }});" checked="checked">
+                                    {% if form_distance_selected == 30 %}
+                                    <input type="radio" name="FormDistanceRadio" id="Miles30" value="30" onClick="checkboxSelected({{ business_type_selected }});" checked="checked">
                                     {% else %}
-                                    <input type="radio" name="FormDistanceRadio" id="Miles50" value="50" onClick="checkboxSelected({{ business_type_selected }});">
+                                    <input type="radio" name="FormDistanceRadio" id="Miles30" value="30" onClick="checkboxSelected({{ business_type_selected }});">
                                     {% endif %}
-                                    <label for= "Miles50">50 Miles</label>
+                                    <label for= "Miles30">30 Miles</label>
                                     
-                                    {% if form_distance_selected == 100 %}
-                                    <input type="radio" name="FormDistanceRadio" id="Miles100" value="100" onClick="checkboxSelected({{ business_type_selected }});" checked="checked">
+                                    {% if form_distance_selected == 60 %}
+                                    <input type="radio" name="FormDistanceRadio" id="Miles60" value="60" onClick="checkboxSelected({{ business_type_selected }});" checked="checked">
                                     {% else %}
-                                    <input type="radio" name="FormDistanceRadio" id="Miles100" value="100" onClick="checkboxSelected({{ business_type_selected }});">
+                                    <input type="radio" name="FormDistanceRadio" id="Miles60" value="60" onClick="checkboxSelected({{ business_type_selected }});">
                                     {% endif %}
-                                    <label for= "Miles100">100 Miles</label>
+                                    <label for= "Miles60">60 Miles</label>
 
                                     {% if form_distance_selected == 9999 %}
                                     <input type="radio" name="FormDistanceRadio" id="MilesAll" value="9999" onClick="checkboxSelected({{ business_type_selected }});" checked="checked">
                                     {% else %}
                                     <input type="radio" name="FormDistanceRadio" id="MilesAll" value="9999" onClick="checkboxSelected({{ business_type_selected }});">
                                     {% endif %}
-                                    <label for= "MilesAll">All Vendors</label>
+                                    <label for= "MilesAll">All</label>
                                 </fieldset>
                                 <br>
                             </div>

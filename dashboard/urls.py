@@ -43,6 +43,7 @@ urlpatterns = [
      path('account-close/', views.account_close, name='account-close'),
      path('account-closed/', views.account_closed, name='account-closed'),
      path('b2b-search/', views.b2b_search, name='b2b-search'),
+     path('services/', views.services, name='services'),
      path('vendor-profile/<str:vendor_business_id>', views.vendor_profile, name='vendor-profile'),
 
 ]

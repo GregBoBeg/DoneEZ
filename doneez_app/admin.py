@@ -55,6 +55,14 @@ class ItemCategoryAdmin(admin.ModelAdmin):
     verbose_name = "Category Name"
     verbose_name_plural = "Categories"
 
+# Business Type
+
+class BusinessTypeAdmin(admin.ModelAdmin):
+    list_display = ['business_type','b2b']
+    list_display_links = ['business_type']
+    list_filter = ['business_type']
+    verbose_name = "Business Type"
+    verbose_name_plural = "Business Types"
 
 
 # Business
@@ -169,7 +177,7 @@ class BusinessAdmin(admin.ModelAdmin):
 
 
 admin.site.register(CustomUser, CustomUserAdmin)
-admin.site.register(BusinessType)
+admin.site.register(BusinessType, BusinessTypeAdmin)
 admin.site.register(ItemCategory, ItemCategoryAdmin)
 admin.site.register(Business, BusinessAdmin)
 admin.site.unregister(Group)

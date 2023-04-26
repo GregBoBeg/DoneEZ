@@ -483,7 +483,7 @@ def b2b_search(request):
             Q(items_offered__item_title__search=search_vector_phrase) |
             Q(items_offered__search_terms__search=search_vector_phrase)
 
-            ).filter(business_type__b2b=True).filter(signup_stage="DONE").distinct().order_by('-business_featured',)
+            ).filter(business_type__b2b="SUPLIER").filter(signup_stage="DONE").distinct().order_by('-business_featured',)
         # object_list = Business.objects.annotate(search=SearchVector('items_offered__item_title', 'items_offered__search_terms')).filter(search=search_vector_phrase).filter(
         #     Q(items_offered__in=form_items_filter)).filter(business_type__b2b=True).filter(signup_stage="DONE").distinct().order_by('-business_featured',)
 
@@ -508,12 +508,13 @@ def b2b_search(request):
             b2b_map = b2b_map._repr_html_()
 
         # Prepare the context values to be sent to the form
-        business_type_list = BusinessType.objects.filter(b2b=True)
+        business_type_list = BusinessType.objects.filter(b2b="SUPPLIER")
 
         if request.GET.get('BusinessTypeSelected'):
             context_business_type_selected = int(request.GET.get('BusinessTypeSelected'))
         else:
-            context_business_type_selected = int(business_type_list[0].id)
+            # context_business_type_selected = int(business_type_list[0].id)
+            context_business_type_selected = int(0)
 
         if request.GET.get('BusinessTypeSelected'):
             context_form_items_search = request.GET.get('FormItemSearch')
@@ -540,7 +541,41 @@ def b2b_search(request):
 
 
 
-# Vendor Profile
+# Services
+
+@login_required
+def services(request):
+    # Only allow access if signup is "DONE".
+    if request.user.business.signup_stage != "DONE":
+        return redirect(to='dashboard-home')
+    else:
+
+
+        object_list = Business.objects.filter(business_type__b2b="SERVICE").filter(signup_stage="DONE").distinct().order_by('-business_featured',)
+        # object_list = Business.objects.annotate(search=SearchVector('items_offered__item_title', 'items_offered__search_terms')).filter(search=search_vector_phrase).filter(
+        #     Q(items_offered__in=form_items_filter)).filter(business_type__b2b=True).filter(signup_stage="DONE").distinct().order_by('-business_featured',)
+
+
+
+        # Prepare the context values to be sent to the form
+        business_type_list = BusinessType.objects.filter(b2b="SERVICE")
+
+
+        context = {
+            'object_list': object_list,
+            'page_get_request': request.GET.copy(),
+            'items_list': Item.objects.all(),
+            'categories_list': ItemCategory.objects.all(),
+            'business_type_list': business_type_list,
+
+        }
+
+
+        return render(request, 'dashboard/services.html', context)
+
+
+
+# Vendor Profile (aka "Supplier")
 
 @login_required
 def vendor_profile(request,vendor_business_id):
