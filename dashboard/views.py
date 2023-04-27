@@ -551,7 +551,7 @@ def solutions(request):
     else:
 
 
-        object_list = Business.objects.filter(business_type__b2b="SOLUTION").filter(signup_stage="DONE").distinct().order_by('-business_featured',)
+        object_list = Business.objects.filter(business_type__b2b="SOLUTION").filter(signup_stage="DONE").distinct().order_by('business_type','-business_featured',)
         # object_list = Business.objects.annotate(search=SearchVector('items_offered__item_title', 'items_offered__search_terms')).filter(search=search_vector_phrase).filter(
         #     Q(items_offered__in=form_items_filter)).filter(business_type__b2b=True).filter(signup_stage="DONE").distinct().order_by('-business_featured',)
 
