@@ -89,11 +89,11 @@ class BusinessType(models.Model):
     B2B_CHOICES = (
         ('RETAIL', 'Retail'),
         ('SUPPLIER', 'Supplier'),
-        ('SOLUTIONS', 'Solutions')
+        ('SOLUTION', 'Solution')
     )
     business_type = models.CharField(max_length=50, verbose_name="Type of Business", help_text='Give a title to this new type of business.')
     business_type_description = models.CharField(max_length=250, verbose_name="Business Type Description", help_text='Provide the text that will describe this Business Type to Partners during the Signup process.<br> Ex:  We provide automotive services on retail consumer vehicles.')
-    b2b = models.CharField(max_length=10, default="RETAIL", verbose_name="B2B", choices=B2B_CHOICES, help_text='Indicates whether this is a B2B business, where its products and services are offered to other businesses only.  If selected, the business will only appear in B2B searches.')
+    b2b = models.CharField(max_length=10, default="RETAIL", verbose_name="B2B", choices=B2B_CHOICES, help_text='Indicates the type of business and where the business will show up.  "Retail" businesses are displayed in end-consumer searches. "Supplier" businesses are displayed in Supplier Searches.  "Solution" businesses are displayed on the Solutions page.')
     pending_default = models.BooleanField(default=False, verbose_name="Requires Account Approval",help_text='Indicates whether this Business-Type will require the Site Admin to approve the account.')
     class Meta:
         verbose_name = "Business Type"

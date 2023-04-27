@@ -17,66 +17,8 @@
 
             <div class="container">
                 <div class="row justify-content-center">
-                    <div class="col" style="min-width: 300px; max-width: 300px;"> <!-- Use this div to set the column width -->
-
-                        <h4>Filters</h4>
-                        <!-- Accordion -->
-                        <div class="accordion mb-3" id="b2bFilterAccordion">
-                            <input type="hidden" id="BusinessTypeSelected" name="BusinessTypeSelected" value="{{business_type_selected}}">
-                            <!-- Accordion Items -->
-                            {% for business_type in business_type_list %}
-                                <div class="accordion-item">
-                                    <div class="accordion-header" id="heading{{ business_type.id }}">
-                                        <!-- Open/Collapse each accordion section, based on which one was selected  -->
-                                        {% if business_type.id == business_type_selected %}
-                                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ business_type.id }}" aria-expanded="true" aria-controls="collapse{{ business_type.id }}">
-                                                {{ business_type.business_type }}
-                                            </button>
-                                        {% else %}
-                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ business_type.id }}" aria-expanded="false" aria-controls="collapse{{ business_type.id }}">
-                                                {{ business_type.business_type }}
-                                            </button>
-                                        {% endif %}
-                                    </div>
-                                    <!-- Show/Hide each Business Type, based on which one was selected  -->
-                                    {% if business_type.id == business_type_selected %}
-                                    <div id="collapse{{ business_type.id }}" class="accordion-collapse collapse show" aria-labelledby="heading{{ business_type.id }}" data-bs-parent="#b2bFilterAccordion">
-                                    {% else %}
-                                    <div id="collapse{{ business_type.id }}" class="accordion-collapse collapse" aria-labelledby="heading{{ business_type.id }}" data-bs-parent="#b2bFilterAccordion">
-                                    {% endif %}
-
-                                        <div class="accordion-body">
-
-                                            {% for category in business_type.itemcategory_set.all %}
-                                                {{ category.item_category }}
-                                                <ul class="filter-list">
-                                                    <!-- List each Item and determine whether it should be displayed as checked/unchecked -->
-                                                    {% for item in category.item_set.all %}
-                                                        <li class="filter-list-item">
-                                                            
-                                                                {% if item.id in form_items_selected %}
-                                                                    <label class="filter-list-item-label" for="Item{{item.id}}"><input type="checkbox" name="FormItemCheckbox" id="Item{{item.id}}" value="{{item.id}}" onClick="checkboxSelected({{business_type.id}});" checked="checked"><span class="filter-list-item-text">{{item.item_title}}</span></label>
-                                                                {% else %}
-                                                                    <label class="filter-list-item-label" for="Item{{item.id}}"><input type="checkbox" name="FormItemCheckbox" id="Item{{item.id}}" value="{{item.id}}" onClick="checkboxSelected({{business_type.id}});"><span class="filter-list-item-text">{{item.item_title}}</span></label>
-                                                                {% endif %}
-                                                                
-                                                            
-                                                        </li>
-                                                    {% endfor %}
-                                                </ul>
-                                            {% endfor %}
-
-                                        </div>
-                                    </div>
-                                </div>
-                            {% endfor %}
-                        </div>
-
-
-                    </div>
-
                     <div class="col" style="min-width: 300px; max-width: 900px;"> <!-- Use this div to set the column width -->
-                        <h4>Search Terms</h4>
+                        <h4>Search</h4>
                         <!-- Search Field -->
                         <div class="form-floating mb-3">
                             <input type="text" class="form-control" id="FormItemSearch" name="FormItemSearch" value="{{form_items_search}}" placeholder="Search Supplier Products and Services" autocomplete="nope" autofocus>
@@ -141,6 +83,64 @@
                             </ul>
                         </div>
                     </div>
+                    <div class="col" style="min-width: 300px; max-width: 300px;"> <!-- Use this div to set the column width -->
+
+                        <h4>Filters</h4>
+                        <!-- Accordion -->
+                        <div class="accordion mb-3" id="b2bFilterAccordion">
+                            <input type="hidden" id="BusinessTypeSelected" name="BusinessTypeSelected" value="{{business_type_selected}}">
+                            <!-- Accordion Items -->
+                            {% for business_type in business_type_list %}
+                                <div class="accordion-item">
+                                    <div class="accordion-header" id="heading{{ business_type.id }}">
+                                        <!-- Open/Collapse each accordion section, based on which one was selected  -->
+                                        {% if business_type.id == business_type_selected %}
+                                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ business_type.id }}" aria-expanded="true" aria-controls="collapse{{ business_type.id }}">
+                                                {{ business_type.business_type }}
+                                            </button>
+                                        {% else %}
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ business_type.id }}" aria-expanded="false" aria-controls="collapse{{ business_type.id }}">
+                                                {{ business_type.business_type }}
+                                            </button>
+                                        {% endif %}
+                                    </div>
+                                    <!-- Show/Hide each Business Type, based on which one was selected  -->
+                                    {% if business_type.id == business_type_selected %}
+                                    <div id="collapse{{ business_type.id }}" class="accordion-collapse collapse show" aria-labelledby="heading{{ business_type.id }}" data-bs-parent="#b2bFilterAccordion">
+                                    {% else %}
+                                    <div id="collapse{{ business_type.id }}" class="accordion-collapse collapse" aria-labelledby="heading{{ business_type.id }}" data-bs-parent="#b2bFilterAccordion">
+                                    {% endif %}
+
+                                        <div class="accordion-body">
+
+                                            {% for category in business_type.itemcategory_set.all %}
+                                                {{ category.item_category }}
+                                                <ul class="filter-list">
+                                                    <!-- List each Item and determine whether it should be displayed as checked/unchecked -->
+                                                    {% for item in category.item_set.all %}
+                                                        <li class="filter-list-item">
+                                                            
+                                                                {% if item.id in form_items_selected %}
+                                                                    <label class="filter-list-item-label" for="Item{{item.id}}"><input type="checkbox" name="FormItemCheckbox" id="Item{{item.id}}" value="{{item.id}}" onClick="checkboxSelected({{business_type.id}});" checked="checked"><span class="filter-list-item-text">{{item.item_title}}</span></label>
+                                                                {% else %}
+                                                                    <label class="filter-list-item-label" for="Item{{item.id}}"><input type="checkbox" name="FormItemCheckbox" id="Item{{item.id}}" value="{{item.id}}" onClick="checkboxSelected({{business_type.id}});"><span class="filter-list-item-text">{{item.item_title}}</span></label>
+                                                                {% endif %}
+                                                                
+                                                            
+                                                        </li>
+                                                    {% endfor %}
+                                                </ul>
+                                            {% endfor %}
+
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+
+
+                    </div>
+
                 </div>
             </div>
             </form>

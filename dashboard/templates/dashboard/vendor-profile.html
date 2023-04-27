@@ -35,32 +35,35 @@
                         <br>
                         
                         <!-- <div>Hours of Operation{{business.business_hours|linebreaks}}</div> -->
-                        <div>Hours of Operation</div>
-                        {% if business.business_hours_mon_fm != "Do Not Display" %}
+                        
+                        {% if business.business_hours_mon_fm != "Leave Blank" and business.business_hours_tue_fm != "Leave Blank" and business.business_hours_wed_fm != "Leave Blank" and business.business_hours_thu_fm != "Leave Blank" and business.business_hours_fri_fm != "Leave Blank" and business.business_hours_sat_fm != "Leave Blank" and business.business_hours_sun_fm != "Leave Blank" %}
+                            <div>Hours of Operation</div>
+                        {% endif %}
                         <div class="container">
                             <div class="row">
                                 <div class="col-auto">
-                                    Mon:<br>
-                                    Tue:<br>
-                                    Wed:<br>
-                                    Thu:<br>
-                                    Fri:<br>
-                                    Sat:<br>
-                                    Sun:<br>
+                                    {% if business.business_hours_mon_fm != "Leave Blank" %} Mon:<br> {% endif %}
+                                    {% if business.business_hours_tue_fm != "Leave Blank" %} Tue:<br> {% endif %}
+                                    {% if business.business_hours_wed_fm != "Leave Blank" %} Wed:<br> {% endif %}
+                                    {% if business.business_hours_thu_fm != "Leave Blank" %} Thu:<br> {% endif %}
+                                    {% if business.business_hours_fri_fm != "Leave Blank" %} Fri:<br> {% endif %}
+                                    {% if business.business_hours_sat_fm != "Leave Blank" %} Sat:<br> {% endif %}
+                                    {% if business.business_hours_sun_fm != "Leave Blank" %} Sun:<br> {% endif %}
+
                                 </div>
                                 <div class="col-auto">
-                                    {{hours_mon}}<br>
-                                    {{hours_tue}}<br>
-                                    {{hours_wed}}<br>
-                                    {{hours_thu}}<br>
-                                    {{hours_fri}}<br>
-                                    {{hours_sat}}<br>
-                                    {{hours_sun}}<br>
+                                    {% if business.business_hours_mon_fm != "Leave Blank" %} {{hours_mon}}<br> {% endif %}
+                                    {% if business.business_hours_tue_fm != "Leave Blank" %} {{hours_tue}}<br> {% endif %}
+                                    {% if business.business_hours_wed_fm != "Leave Blank" %} {{hours_wed}}<br> {% endif %}
+                                    {% if business.business_hours_thu_fm != "Leave Blank" %} {{hours_thu}}<br> {% endif %}
+                                    {% if business.business_hours_fri_fm != "Leave Blank" %} {{hours_fri}}<br> {% endif %}
+                                    {% if business.business_hours_sat_fm != "Leave Blank" %} {{hours_sat}}<br> {% endif %}
+                                    {% if business.business_hours_sun_fm != "Leave Blank" %} {{hours_sun}}<br> {% endif %}
+
                                 </div>
                             </div>
                         </div>
 
-                        {% endif %}
                         <div>{{business.business_hours_note}}</div>
             
                         {% if business.business_locations %}

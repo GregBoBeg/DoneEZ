@@ -34,14 +34,19 @@
 
                                                 <ul class="filter-results-list ps-3">
                                                     {% if business.business_featured %}
-                                                    <a href="/dashboard/vendor-profile/{{ business.id}}" class="filter-result-featured-title">{{ business.business_name }}</a> ({{business.distance_between|stringformat:"0.1f"}} Miles)
-                                                    <br>
-                                                    <span class="filter-result-featured ps-4">  {{ business.business_tagline }}</span>
+                                                        <a href="/dashboard/vendor-profile/{{ business.id}}" class="filter-result-featured-title">{{ business.business_name }}</a> 
+                                                        <br>
+                                                        <span class="filter-result-featured ps-1">  {{ business.business_tagline }}</span>
                                                     {% else %}
-                                                    <span class="filter-result"><a href="/dashboard/vendor-profile/{{ business.id}}" class="filter-result">{{ business.business_name }}</a> ({{business.distance_between|stringformat:"0.1f"}} Miles) <span>- {{ business.business_tagline }}</span>
+                                                        <span class="filter-result"><a href="/dashboard/vendor-profile/{{ business.id}}" class="filter-result">{{ business.business_name }}</a>
+                                                        <br>
+                                                        <span class="filter-result ps-1">{{ business.business_tagline }}</span>
                                                     {% endif %}
                                                     <br>
-                                                    <span class="filter-result ps-4">{{ business.business_phone1 }}</span> <span class="filter-result ps-4">{{ business.business_email }}</span>
+                                                    {% if business.business_phone1 %}
+                                                        <span class="filter-result ps-4">{{ business.business_phone1 }}</span>
+                                                    {% endif %}
+                                                    <span class="filter-result ps-4">{{ business.business_email }}</span>
                                                 </ul>
                                                 <hr>
                                         {% endfor %}
