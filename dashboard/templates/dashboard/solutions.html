@@ -21,6 +21,7 @@
                     <div class="col" style="min-width: 300px;"> <!-- Use this div to set the column width -->
                         <!-- Search Field -->
                             <ul class="p-0">
+                                <hr>
                                 {% regroup object_list by business_type as business_list %}
                                     {% for business_type in business_list %}
                                         <h4>{{business_type.grouper}}</h4>

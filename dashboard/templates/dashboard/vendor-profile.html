@@ -36,7 +36,7 @@
                         
                         <!-- <div>Hours of Operation{{business.business_hours|linebreaks}}</div> -->
                         
-                        {% if business.business_hours_mon_fm != "Leave Blank" and business.business_hours_tue_fm != "Leave Blank" and business.business_hours_wed_fm != "Leave Blank" and business.business_hours_thu_fm != "Leave Blank" and business.business_hours_fri_fm != "Leave Blank" and business.business_hours_sat_fm != "Leave Blank" and business.business_hours_sun_fm != "Leave Blank" %}
+                        {% if business.business_hours_mon_fm != "Leave Blank" or business.business_hours_tue_fm != "Leave Blank" or business.business_hours_wed_fm != "Leave Blank" or business.business_hours_thu_fm != "Leave Blank" or business.business_hours_fri_fm != "Leave Blank" or business.business_hours_sat_fm != "Leave Blank" or business.business_hours_sun_fm != "Leave Blank" %}
                             <div>Hours of Operation</div>
                         {% endif %}
                         <div class="container">
@@ -82,7 +82,7 @@
                         <p>{{business.business_description|linebreaks}}</p>
                     </div>
                     {% if business.business_website %}
-                    <div><a href="{{business.business_website}}" target="blank" value="cancel">Visit our website to learn more...</a></div>
+                    <div><a href="{{business.business_website}}" target="blank" value="cancel" class="filter-result-featured-title">Visit our website to learn more...</a></div>
                     {% endif %}
 
                 </div>
