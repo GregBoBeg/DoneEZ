@@ -21,28 +21,32 @@
                     <div class="col" style="min-width: 300px;"> <!-- Use this div to set the column width -->
                         <!-- Search Field -->
                             <ul class="p-0">
-                                    <!-- List Businesses that matched our search and filter criteria -->
-                                    {% for business in object_list %}
-                                        <h4>{{business.business_type}}</h4>
+                                {% regroup object_list by business_type as business_list %}
+                                    {% for business_type in business_list %}
+                                        <h4>{{business_type.grouper}}</h4>
                                         <hr>
-                                        <!-- 
-                                        Developer Note:  The "distance_between" value that we added to the object_list queryset can only be accessed within a loop (as done here),
-                                        and cannot be used to "filter" the query (a Django limitation); therefore, we have to reference it from within a loop, each time we need it.
-                                        -->
+                                        <!-- List Businesses that matched our search and filter criteria -->
+                                        {% for business in object_list %}
+                                            <!-- 
+                                            Developer Note:  The "distance_between" value that we added to the object_list queryset can only be accessed within a loop (as done here),
+                                            and cannot be used to "filter" the query (a Django limitation); therefore, we have to reference it from within a loop, each time we need it.
+                                            -->
 
-                                            <li class="filter-results-list">
-                                                {% if business.business_featured %}
-                                                <a href="/dashboard/vendor-profile/{{ business.id}}" class="filter-result-featured-title">{{ business.business_name }}</a> ({{business.distance_between|stringformat:"0.1f"}} Miles)
-                                                <br>
-                                                <span class="filter-result-featured ps-4">  {{ business.business_tagline }}</span>
-                                                {% else %}
-                                                <span class="filter-result"><a href="/dashboard/vendor-profile/{{ business.id}}" class="filter-result">{{ business.business_name }}</a> ({{business.distance_between|stringformat:"0.1f"}} Miles) <span>- {{ business.business_tagline }}</span>
-                                                {% endif %}
-                                                <br>
-                                                <span class="filter-result ps-4">{{ business.business_phone1 }}</span> <span class="filter-result ps-4">{{ business.business_email }}</span>
-                                            </li>
-                                            <hr>
+                                                <ul class="filter-results-list ps-3">
+                                                    {% if business.business_featured %}
+                                                    <a href="/dashboard/vendor-profile/{{ business.id}}" class="filter-result-featured-title">{{ business.business_name }}</a> ({{business.distance_between|stringformat:"0.1f"}} Miles)
+                                                    <br>
+                                                    <span class="filter-result-featured ps-4">  {{ business.business_tagline }}</span>
+                                                    {% else %}
+                                                    <span class="filter-result"><a href="/dashboard/vendor-profile/{{ business.id}}" class="filter-result">{{ business.business_name }}</a> ({{business.distance_between|stringformat:"0.1f"}} Miles) <span>- {{ business.business_tagline }}</span>
+                                                    {% endif %}
+                                                    <br>
+                                                    <span class="filter-result ps-4">{{ business.business_phone1 }}</span> <span class="filter-result ps-4">{{ business.business_email }}</span>
+                                                </ul>
+                                                <hr>
+                                        {% endfor %}
                                     {% endfor %}
+
                             </ul>
                         </div>
                     </div>

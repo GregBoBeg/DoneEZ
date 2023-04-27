@@ -567,7 +567,6 @@ def solutions(request):
             'items_list': Item.objects.all(),
             'categories_list': ItemCategory.objects.all(),
             'business_type_list': business_type_list,
-
         }
 
 
