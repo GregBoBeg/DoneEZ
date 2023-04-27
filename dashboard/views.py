@@ -541,24 +541,24 @@ def b2b_search(request):
 
 
 
-# Services
+# Solutions
 
 @login_required
-def services(request):
+def solutions(request):
     # Only allow access if signup is "DONE".
     if request.user.business.signup_stage != "DONE":
         return redirect(to='dashboard-home')
     else:
 
 
-        object_list = Business.objects.filter(business_type__b2b="SERVICE").filter(signup_stage="DONE").distinct().order_by('-business_featured',)
+        object_list = Business.objects.filter(business_type__b2b="SOLUTION").filter(signup_stage="DONE").distinct().order_by('-business_featured',)
         # object_list = Business.objects.annotate(search=SearchVector('items_offered__item_title', 'items_offered__search_terms')).filter(search=search_vector_phrase).filter(
         #     Q(items_offered__in=form_items_filter)).filter(business_type__b2b=True).filter(signup_stage="DONE").distinct().order_by('-business_featured',)
 
 
 
         # Prepare the context values to be sent to the form
-        business_type_list = BusinessType.objects.filter(b2b="SERVICE")
+        business_type_list = BusinessType.objects.filter(b2b="SOLUTION")
 
 
         context = {
@@ -571,7 +571,7 @@ def services(request):
         }
 
 
-        return render(request, 'dashboard/services.html', context)
+        return render(request, 'dashboard/solutions.html', context)
 
 
 
