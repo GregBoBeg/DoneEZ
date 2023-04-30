@@ -22,7 +22,7 @@
                         <!-- Search Field -->
                         <div class="form-floating mb-3">
                             <input type="text" class="form-control" id="FormItemSearch" name="FormItemSearch" value="{{form_items_search}}" placeholder="Search Supplier Products and Services" autocomplete="nope" autofocus>
-                            <label for="floatingInput">Search Supplier Products and Services</label>
+                            <label for="floatingInput">Search Supplier Products</label>
                         </div>
                         <div>
                             <!-- Display the Map -->
@@ -40,19 +40,21 @@
                                     {% endif %}
                                     <label for= "Miles30">30 mi.</label>
                                     
-                                    {% if form_distance_selected == 60 %}
+                                    {% if form_distance_selected >= 60 %}
                                     <input type="radio" name="FormDistanceRadio" id="Miles60" value="60" onClick="checkboxSelected({{ business_type_selected }});" checked="checked">
                                     {% else %}
                                     <input type="radio" name="FormDistanceRadio" id="Miles60" value="60" onClick="checkboxSelected({{ business_type_selected }});">
                                     {% endif %}
                                     <label for= "Miles60">60 mi.</label>
 
+                                    <!-- Code for an "All" option
                                     {% if form_distance_selected == 9999 %}
                                     <input type="radio" name="FormDistanceRadio" id="MilesAll" value="9999" onClick="checkboxSelected({{ business_type_selected }});" checked="checked">
                                     {% else %}
                                     <input type="radio" name="FormDistanceRadio" id="MilesAll" value="9999" onClick="checkboxSelected({{ business_type_selected }});">
                                     {% endif %}
-                                    <label for= "MilesAll">All</label>
+                                    <label for= "MilesAll">All</label> 
+                                    -->
                                 </fieldset>
                                 <br>
                             </div>
