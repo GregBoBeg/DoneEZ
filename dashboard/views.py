@@ -483,7 +483,7 @@ def b2b_search(request):
             Q(items_offered__item_title__search=search_vector_phrase) |
             Q(items_offered__search_terms__search=search_vector_phrase)
 
-            ).filter(business_type__b2b="SUPPLIER").filter(signup_stage="DONE").distinct().order_by('-business_featured','business_type')
+            ).filter(business_type__b2b="SUPPLIER").filter(signup_stage="DONE").distinct().order_by('-business_featured',)
         # object_list = Business.objects.annotate(search=SearchVector('items_offered__item_title', 'items_offered__search_terms')).filter(search=search_vector_phrase).filter(
         #     Q(items_offered__in=form_items_filter)).filter(business_type__b2b=True).filter(signup_stage="DONE").distinct().order_by('-business_featured',)
 
@@ -508,7 +508,7 @@ def b2b_search(request):
             b2b_map = b2b_map._repr_html_()
 
         # Prepare the context values to be sent to the form
-        business_type_list = BusinessType.objects.filter(b2b="SUPPLIER")
+        business_type_list = BusinessType.objects.filter(b2b="SUPPLIER").order_by('business_type',)
 
         if request.GET.get('BusinessTypeSelected'):
             context_business_type_selected = int(request.GET.get('BusinessTypeSelected'))
