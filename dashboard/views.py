@@ -303,24 +303,20 @@ def business_map_address(request):
         if request.method == 'POST':
 
             form = UpdateBusinessMapAddressForm(request.POST, instance=request.user.business)
-
+            print(form.is_valid())
             if form.is_valid():
                 form.save()
 
                 # Get and Save Latitude and Longitude of Address
-                try:
                     
+                try:
                     loc =  (form.cleaned_data.get('business_address_street1') + "," + 
                             form.cleaned_data.get('business_address_city') + "," + 
                             form.cleaned_data.get('business_address_state') + "," + 
                             form.cleaned_data.get('business_address_zip'))
 
-                    print("Concatinated: "+loc)
-
-                    myaddr = Nominatim(user_agent = 'DoneEZ').geocode(loc)
-                    print(myaddr)
-                    print(myaddr.longitude)
-                    print(myaddr.latitude)
+                    nomAgent = Nominatim(user_agent = 'DoneEZ')
+                    myaddr = nomAgent.geocode(loc, timeout = 3)
                     Business.objects.filter(pk=request.user.business.id).update(**{
                         'business_address_longitude':myaddr.longitude,
                         'business_address_latitude':myaddr.latitude                    
