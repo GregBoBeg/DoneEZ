@@ -44,6 +44,7 @@ urlpatterns = [
      path('account-closed/', views.account_closed, name='account-closed'),
      path('b2b-search/', views.b2b_search, name='b2b-search'),
      path('solutions/', views.solutions, name='solutions'),
+     path('solutions/<str:business_type_selected>', views.solutions, name='solutions'),
      path('vendor-profile/<str:vendor_business_id>', views.vendor_profile, name='vendor-profile'),
 
 ]

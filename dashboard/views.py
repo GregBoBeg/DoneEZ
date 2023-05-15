@@ -102,7 +102,11 @@ def dashboard_home(request):
         logout(request)
         return redirect(to='partner-signup-pending')
     else:
-        return render(request, 'dashboard/business-home.html')
+        business_type_list = BusinessType.objects.filter(b2b="SUPPLIER").order_by('business_type',)
+        context = {
+            'business_type_list': business_type_list,
+        }
+        return render(request, 'dashboard/business-home.html', context)
 
 
 
@@ -540,18 +544,17 @@ def b2b_search(request):
 # Solutions
 
 @login_required
-def solutions(request):
+def solutions(request, business_type_selected=None):
     # Only allow access if signup is "DONE".
     if request.user.business.signup_stage != "DONE":
         return redirect(to='dashboard-home')
     else:
+        if business_type_selected:
+            object_list = Business.objects.filter(business_type__b2b="SOLUTION").filter(signup_stage="DONE").filter(business_type=business_type_selected)
+        else:
+            object_list = Business.objects.filter(business_type__b2b="SOLUTION").filter(signup_stage="DONE")
 
-
-        object_list = Business.objects.filter(business_type__b2b="SOLUTION").filter(signup_stage="DONE").distinct().order_by('business_type','-business_featured',)
-        # object_list = Business.objects.annotate(search=SearchVector('items_offered__item_title', 'items_offered__search_terms')).filter(search=search_vector_phrase).filter(
-        #     Q(items_offered__in=form_items_filter)).filter(business_type__b2b=True).filter(signup_stage="DONE").distinct().order_by('-business_featured',)
-
-
+        object_list = object_list.distinct().order_by('business_type','-business_featured',)
 
         # Prepare the context values to be sent to the form
         business_type_list = BusinessType.objects.filter(b2b="SOLUTION")

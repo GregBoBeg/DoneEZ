@@ -11,8 +11,8 @@
             {% csrf_token %}
 
             <div>
-                <h1 class="display-4">Search Suppliers</h1>
-                <p>Utilize the DoneEZ platform to discover additional partner suppliers offering discounted products for your business.</p>
+                <h1 class="display-4">Search Local Suppliers</h1>
+                <p>Utilize the DoneEZ platform to discover local suppliers offering discounted products for your business.</p>
             </div>
 
             <div class="container">
@@ -40,12 +40,20 @@
                                     {% endif %}
                                     <label for= "Miles30">30 mi.</label>
                                     
-                                    {% if form_distance_selected >= 60 %}
+                                    {% if form_distance_selected == 60 %}
                                     <input type="radio" name="FormDistanceRadio" id="Miles60" value="60" onClick="checkboxSelected({{ business_type_selected }});" checked="checked">
                                     {% else %}
                                     <input type="radio" name="FormDistanceRadio" id="Miles60" value="60" onClick="checkboxSelected({{ business_type_selected }});">
                                     {% endif %}
                                     <label for= "Miles60">60 mi.</label>
+
+                                    {% if form_distance_selected >= 120 %}
+                                    <input type="radio" name="FormDistanceRadio" id="Miles120" value="120" onClick="checkboxSelected({{ business_type_selected }});" checked="checked">
+                                    {% else %}
+                                    <input type="radio" name="FormDistanceRadio" id="Miles120" value="120" onClick="checkboxSelected({{ business_type_selected }});">
+                                    {% endif %}
+                                    <label for= "Miles120">120 mi.</label>
+
 
                                     <!-- Code for an "All" option
                                     {% if form_distance_selected == 9999 %}

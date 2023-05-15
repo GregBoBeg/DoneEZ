@@ -81,9 +81,6 @@
                     <div class="col"> 
                         <p>{{business.business_description|linebreaks}}</p>
                     </div>
-                    {% if business.business_website %}
-                    <div><a href="{{business.business_website}}" target="blank" value="cancel" class="filter-result-featured-title">Visit our website to learn more...</a></div>
-                    {% endif %}
 
                 </div>
                 <div class="row justify-content-center">
@@ -91,7 +88,10 @@
             
                         <!-- Form Buttons -->
                         <div class="d-grid gap-3 pt-4 px-0">
-                            <a href="{{request.META.HTTP_REFERER|escape}}" class="btn btn-site">Return</a>
+                            {% if business.business_website %}
+                            <a href="{{business.business_website}}" target="blank" value="cancel" class="btn btn-site">Visit Our Website</a>
+                            {% endif %}
+                            <a href="{{request.META.HTTP_REFERER|escape}}" class="btn btn-site">Return to Previous Page</a>
                             <a href="/dashboard" class="btn btn-site">Return to Dashboard</a>
                         </div>
                     </div>
