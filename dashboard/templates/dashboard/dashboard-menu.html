@@ -24,7 +24,7 @@
                 <ul class="dropdown-menu pe-2" aria-labelledby="navbarDropdown2">
                     <li><a class="dropdown-item site-menu-item" href="/dashboard/solutions/">All Offers</a></li>
                     
-                    {% for business_type in business_type_list%}
+                    {% for business_type in business_solutions %}
                     <li><a class="dropdown-item site-menu-item" href="/dashboard/solutions/{{ business_type.id}}"> {{ business_type.business_type }}</a></li>
                     {% endfor %}
                 </ul>

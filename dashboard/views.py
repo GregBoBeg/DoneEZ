@@ -102,9 +102,9 @@ def dashboard_home(request):
         logout(request)
         return redirect(to='partner-signup-pending')
     else:
-        business_type_list = BusinessType.objects.filter(b2b="SUPPLIER").order_by('business_type',)
+        business_solutions = BusinessType.objects.filter(b2b="SOLUTION").order_by('business_type',)
         context = {
-            'business_type_list': business_type_list,
+            'business_solutions': business_solutions,
         }
         return render(request, 'dashboard/business-home.html', context)
 
@@ -557,7 +557,7 @@ def solutions(request, business_type_selected=None):
         object_list = object_list.distinct().order_by('business_type','-business_featured',)
 
         # Prepare the context values to be sent to the form
-        business_type_list = BusinessType.objects.filter(b2b="SOLUTION")
+        business_solutions = BusinessType.objects.filter(b2b="SOLUTION")
 
 
         context = {
@@ -565,7 +565,7 @@ def solutions(request, business_type_selected=None):
             'page_get_request': request.GET.copy(),
             'items_list': Item.objects.all(),
             'categories_list': ItemCategory.objects.all(),
-            'business_type_list': business_type_list,
+            'business_solutions': business_solutions,
         }
 
 
