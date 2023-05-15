@@ -23,6 +23,7 @@ from django.template.loader import render_to_string
 from django.conf import settings
 
 
+
 # Authentication Section
 # -------------------------------------------------------------------
 # The following views handle user login and authentication functions. 
@@ -102,11 +103,7 @@ def dashboard_home(request):
         logout(request)
         return redirect(to='partner-signup-pending')
     else:
-        business_solutions = BusinessType.objects.filter(b2b="SOLUTION").order_by('business_type',)
-        context = {
-            'business_solutions': business_solutions,
-        }
-        return render(request, 'dashboard/business-home.html', context)
+        return render(request, 'dashboard/business-home.html')
 
 
 
@@ -267,6 +264,8 @@ def partner_signup_pending(request):
 
 @login_required
 def business_profile(request):
+
+
     # Only allow access for the appropriate signup stages.
     if request.user.business.signup_stage == "PROFILE" or request.user.business.signup_stage == "DONE":
 
@@ -378,7 +377,7 @@ def business_map_address(request):
         context = {
             'form': form,
             'b2b_map': b2b_map,
-            'map_status': business_object.business_address_map_status
+            'map_status': business_object.business_address_map_status,
         }
 
         # Render appropriate Signup or Non-Signup Template
@@ -544,28 +543,23 @@ def b2b_search(request):
 # Solutions
 
 @login_required
-def solutions(request, business_type_selected=None):
+def solutions(request, solutions_menu_selection=None):
     # Only allow access if signup is "DONE".
     if request.user.business.signup_stage != "DONE":
         return redirect(to='dashboard-home')
     else:
-        if business_type_selected:
-            object_list = Business.objects.filter(business_type__b2b="SOLUTION").filter(signup_stage="DONE").filter(business_type=business_type_selected)
+        if solutions_menu_selection:
+            object_list = Business.objects.filter(business_type__b2b="SOLUTION").filter(signup_stage="DONE").filter(business_type=solutions_menu_selection)
         else:
             object_list = Business.objects.filter(business_type__b2b="SOLUTION").filter(signup_stage="DONE")
 
         object_list = object_list.distinct().order_by('business_type','-business_featured',)
-
-        # Prepare the context values to be sent to the form
-        business_solutions = BusinessType.objects.filter(b2b="SOLUTION")
-
 
         context = {
             'object_list': object_list,
             'page_get_request': request.GET.copy(),
             'items_list': Item.objects.all(),
             'categories_list': ItemCategory.objects.all(),
-            'business_solutions': business_solutions,
         }
 
 

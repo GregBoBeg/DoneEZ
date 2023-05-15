@@ -125,6 +125,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'doneez_app.context_processors.business_solutions_processor',
             ],
         },
     },
