@@ -43,7 +43,7 @@
                                                         <p class="filter-result-featured ps-1">{{ business.business_tagline }}</p>
                                                     {% else %}
                                                         <span class="filter-result"><a href="/dashboard/vendor-profile/{{ business.id}}" class="filter-result"><u>{{ business.business_name }}</u></a>
-                                                        <p class="filter-result ps-1">{{ business.business_tagline }}</p>
+                                                        <p class="filter-result ps-1"><em>{{ business.business_tagline }}</em></p>
                                                     {% endif %}
                                                     {% if business.business_email %}
                                                         <span class="filter-result ps-1">{{ business.business_email }}</span>
