@@ -46,7 +46,7 @@ class UserSignupForm(UserCreationForm):
 class CustomChoiceField(forms.ModelChoiceField):
 
     def label_from_instance(self, obj):
-        return mark_safe("<span class='selector-title'> %s </span><br><span class='selector-description'> %s </span><br><br>" % (obj.business_type,obj.business_type_description))
+        return mark_safe("<span class='selector-title'> %s </span><br><p class='selector-description'> %s </p><br>" % (obj.business_type,obj.business_type_description))
 
 
 
