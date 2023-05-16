@@ -40,15 +40,12 @@
                                                 <ul class="filter-results-list ps-3">
                                                     {% if business.business_featured %}
                                                         <a href="/dashboard/vendor-profile/{{ business.id}}" class="filter-result-featured-title"><u>{{ business.business_name }}</u></a> 
-                                                        <br>
-                                                        <span class="filter-result-featured ps-1">{{ business.business_tagline }}</span>
+                                                        <p class="filter-result-featured ps-1">{{ business.business_tagline }}</p>
                                                     {% else %}
                                                         <span class="filter-result"><a href="/dashboard/vendor-profile/{{ business.id}}" class="filter-result"><u>{{ business.business_name }}</u></a>
-                                                        <br>
-                                                        <span class="filter-result ps-1">{{ business.business_tagline }}</span>
+                                                        <p class="filter-result ps-1">{{ business.business_tagline }}</p>
                                                     {% endif %}
                                                     {% if business.business_email %}
-                                                        <br>
                                                         <span class="filter-result ps-1">{{ business.business_email }}</span>
                                                     {% endif %}
                                                     {% if business.business_phone1 %}
