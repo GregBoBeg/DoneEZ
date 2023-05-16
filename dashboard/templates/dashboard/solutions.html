@@ -40,10 +40,20 @@
                                                 <ul class="filter-results-list ps-3">
                                                     {% if business.business_featured %}
                                                         <a href="/dashboard/vendor-profile/{{ business.id}}" class="filter-result-featured-title"><u>{{ business.business_name }}</u></a> 
-                                                        <p class="filter-result-featured ps-1">{{ business.business_tagline }}</p>
+                                                        <br>
+                                                        <span class="filter-result-featured ps-1">{{ business.business_tagline }}</span>
                                                     {% else %}
                                                         <span class="filter-result"><a href="/dashboard/vendor-profile/{{ business.id}}" class="filter-result"><u>{{ business.business_name }}</u></a>
-                                                        <p class="filter-result ps-1">{{ business.business_tagline }}</p>
+                                                        <br>
+                                                        <span class="filter-result ps-1">{{ business.business_tagline }}</span>
+                                                    {% endif %}
+                                                    {% if business.business_email %}
+                                                        <br>
+                                                        <span class="filter-result ps-1">{{ business.business_email }}</span>
+                                                    {% endif %}
+                                                    {% if business.business_phone1 %}
+                                                        <br>
+                                                        <span class="filter-result ps-1">{{ business.business_phone1 }}</span>
                                                     {% endif %}
                                                     {% if business.business_description %}
                                                         {% if business.business_description|length|get_digit:"-1" > 200 %}
@@ -51,12 +61,6 @@
                                                         {% else %}
                                                         <p class="filter-result ps-1">{{ business.business_description }}</p>
                                                         {% endif %}
-                                                    {% endif %}
-                                                    {% if business.business_phone1 %}
-                                                        <p class="filter-result ps-1"><u>Phone</u>:  {{ business.business_phone1 }}</p>
-                                                    {% endif %}
-                                                    {% if business.business_email %}
-                                                        <p class="filter-result ps-1"><u>Email</u>:   {{ business.business_email }}</p>
                                                     {% endif %}
                                                 </ul>
                                                 <hr>
