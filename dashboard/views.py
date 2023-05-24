@@ -493,18 +493,28 @@ def b2b_search(request):
             business_object.distance_between = distance.distance(coords_from, coords_to).mi
 
         # Plot the matching businesses on the map
+        from folium import IFrame
         b2b_map = ''
         if object_list:
-
+            # Establish an instance of our map object
             b2b_map = folium.Map(location=[37.0902, -95.7129], zoom_start=5)
+
+            # Prepare and plot each marker
             for business_location in object_list:
                 # Developer Note:  The "distance_between" value that we added to the object_list queryset can only be accessed within a loop (as done here),
                 # and cannot be used to "filter" the query (a Django limitation); therefore, we have to reference it from within a loop, each time we need it.
                 popupDtls=folium.Popup(business_location.business_name, max_width=len(business_location.business_name)*20)
                 if business_location.business_address_latitude and business_location.business_address_longitude and business_location.distance_between < form_distance_selected:
-                    folium.Marker([business_location.business_address_latitude, business_location.business_address_longitude], popup=popupDtls).add_to(b2b_map)
+                    folium.Marker([business_location.business_address_latitude, business_location.business_address_longitude], popup=popupDtls, tooltip=folium.Tooltip(business_location.business_name, permanent=True)).add_to(b2b_map)
             b2b_map.fit_bounds(b2b_map.get_bounds(), padding=(30, 30))
             b2b_map = b2b_map._repr_html_()
+
+
+
+
+
+
+
 
         # Prepare the context values to be sent to the form
         business_type_list = BusinessType.objects.filter(b2b="SUPPLIER").order_by('business_type',)
@@ -548,8 +558,11 @@ def solutions(request, solutions_menu_selection=None):
     if request.user.business.signup_stage != "DONE":
         return redirect(to='dashboard-home')
     else:
+        solution_selected = ""
         if solutions_menu_selection:
             object_list = Business.objects.filter(business_type__b2b="SOLUTION").filter(signup_stage="DONE").filter(business_type=solutions_menu_selection)
+            solution_selected = BusinessType.objects.get(id=solutions_menu_selection)
+
         else:
             object_list = Business.objects.filter(business_type__b2b="SOLUTION").filter(signup_stage="DONE")
 
@@ -557,6 +570,7 @@ def solutions(request, solutions_menu_selection=None):
 
         context = {
             'object_list': object_list,
+            'solution_selected': solution_selected,
             'page_get_request': request.GET.copy(),
             'items_list': Item.objects.all(),
             'categories_list': ItemCategory.objects.all(),

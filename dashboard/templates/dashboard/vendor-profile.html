@@ -89,10 +89,10 @@
                         <!-- Form Buttons -->
                         <div class="d-grid gap-3 pt-4 px-0">
                             {% if business.business_website %}
-                            <a href="{{business.business_website}}" target="blank" value="cancel" class="btn btn-site">Visit Our Website</a>
+                            <a href="{{business.business_website}}" target="blank" value="cancel" class="btn btn-site">Visit Our Website <i class="fa-solid fa-up-right-from-square"></i></a>
                             {% endif %}
-                            <a href="{{request.META.HTTP_REFERER|escape}}" class="btn btn-site">Return to Previous Page</a>
-                            <a href="/dashboard" class="btn btn-site">Return to Dashboard</a>
+                            <a href="{{request.META.HTTP_REFERER|escape}}" class="btn btn-site"><i class="fa-solid fa-angle-left"></i> Return to Previous Page</a>
+                            <a href="/dashboard" class="btn btn-site"><i class="fa-solid fa-angles-left"></i> Return to Dashboard </a>
                         </div>
                     </div>
                 </div>

@@ -6,6 +6,7 @@
 
 /* Color Palette 
 
+#bae2ff - Blue Barely
 #e8effd - Blue Light
 #327dc8 - Blue
 #00528c - Blue Dark
@@ -138,6 +139,28 @@ h5 {
 
 .filter-results-list {
     list-style-type:none;
+}
+
+.filter-results-card {
+    height: auto;
+    width: 100%;
+    word-wrap: normal;
+    white-space: normal;
+    color:#002C4D;
+    border-style: solid;
+    border-width: 8px;
+    border-color: white;
+    border-radius: 5px;
+    box-shadow: 0 0 .8rem lightgray;
+    float: left;
+    margin-right: 1.5rem;
+}
+
+.filter-results-card:hover {
+    color:#002C4D;
+    background-color: #f1f7fa;
+    border-color: #f1f7fa;
+    box-shadow: 0 0 .8rem rgb(157, 157, 157);
 }
 
 .filter-result {
