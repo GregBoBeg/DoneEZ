@@ -6,6 +6,7 @@
 
 /* Color Palette 
 
+#bae2ff - Blue Barely
 #e8effd - Blue Light
 #327dc8 - Blue
 #00528c - Blue Dark
@@ -140,6 +141,28 @@ h5 {
     list-style-type:none;
 }
 
+.filter-results-card {
+    height: auto;
+    width: 100%;
+    word-wrap: normal;
+    white-space: normal;
+    color:#002C4D;
+    border-style: solid;
+    border-width: 8px;
+    border-color: white;
+    border-radius: 5px;
+    box-shadow: 0 0 .8rem lightgray;
+    float: left;
+    margin-right: 1.5rem;
+}
+
+.filter-results-card:hover {
+    color:#002C4D;
+    background-color: #f1f7fa;
+    border-color: #f1f7fa;
+    box-shadow: 0 0 .8rem rgb(157, 157, 157);
+}
+
 .filter-result {
     text-decoration: none;
 }
@@ -188,7 +211,7 @@ h5 {
 
 .selector-title {
     color: #327dc8;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     margin: 0px 10px 0px 10px;
     list-style-type: none;
 }
@@ -199,7 +222,7 @@ h5 {
 
 .selector-description {
     color: #00528c;
-    font-size: 1.2rem;
+    font-size: 1.0rem;
     margin: 0px 0px 0px 30px;
     list-style-type: none;
 }
@@ -213,10 +236,6 @@ h5 {
     text-indent: -1.2rem;
 }
 
-.custom-radio-list-wrap > [type=checkbox] {
-    padding-left: 4rem;
-}
-  
 
 .field-area {
     border: 1px solid #ccc;
