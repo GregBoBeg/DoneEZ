@@ -6,9 +6,11 @@
 
 /* Color Palette 
 
+#bae2ff - Blue Barely
 #e8effd - Blue Light
 #327dc8 - Blue
 #00528c - Blue Dark
+#002C4D - Blue Very Dark
 
 #37332f - Brown Dark
 #ebe3db - Brown Light
@@ -34,7 +36,7 @@ body {
     background-color: #ebe3db;
     padding: 0;
     border-top: .5rem solid #327dc8;
-    border-bottom: 1rem solid #000000;
+    border-bottom: 1rem solid #002C4D;
     overflow-y:scroll;
 }
 
@@ -58,33 +60,10 @@ a:hover {
     cursor: pointer;
 }
 
-
 a:focus {
     border-radius: 3px 3px 3px 3px;
     outline: none;
     box-shadow: 0px 0px 4px #327dc8; 
-}
-
-a.logo-anchor {
-    text-decoration: none;
-
-}
-
-a.logo-anchor:hover {
-    /* background-color: transparent; */
-    /* background: transparent; */
-    color: black;
-    background: red;
-    border-radius: 2px 2px 2px 2px;
-    cursor: pointer;
-
-}
-
-a.logo-anchor:focus {
-    border: none;
-    outline: none;
-    border-color: white;
-    box-shadow: 0 0 10px #000000;
 }
 
 
@@ -132,6 +111,7 @@ h5 {
 .filter-header {
     white-space: nowrap;
 }
+
 .filter-category {
     overflow: hidden;
     white-space: nowrap;
@@ -139,19 +119,48 @@ h5 {
 
 .filter-list {
     padding: 0px;
-    overflow: hidden;
-    white-space: nowrap;
 }
 
 .filter-list-item {
-    margin-left: 1rem;
+    margin-left: .5rem;
+    margin-right: 0px;
     list-style-type:none;
-    overflow: hidden;
-    white-space: nowrap;
+}
+
+.filter-list-item-label {
+    display: block;
+    padding-left: 1rem;
+    text-indent: -1.3rem;
+    
+}
+.filter-list-item-text {
+    margin-left: .5rem;
 }
 
 .filter-results-list {
     list-style-type:none;
+}
+
+.filter-results-card {
+    height: auto;
+    width: 100%;
+    word-wrap: normal;
+    white-space: normal;
+    color:#002C4D;
+    border-style: solid;
+    border-width: 8px;
+    border-color: white;
+    border-radius: 5px;
+    box-shadow: 0 0 .8rem lightgray;
+    float: left;
+    margin-right: 1.5rem;
+}
+
+.filter-results-card:hover {
+    color:#002C4D;
+    background-color: #f1f7fa;
+    border-color: #f1f7fa;
+    box-shadow: 0 0 .8rem rgb(157, 157, 157);
 }
 
 .filter-result {
@@ -202,7 +211,7 @@ h5 {
 
 .selector-title {
     color: #327dc8;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     margin: 0px 10px 0px 10px;
     list-style-type: none;
 }
@@ -213,7 +222,7 @@ h5 {
 
 .selector-description {
     color: #00528c;
-    font-size: 1.2rem;
+    font-size: 1.0rem;
     margin: 0px 0px 0px 30px;
     list-style-type: none;
 }
@@ -221,6 +230,12 @@ h5 {
 .custom-radio-list {
     list-style-type: none;
 }
+
+.custom-radio-list-wrap {
+    list-style-type: none;
+    text-indent: -1.2rem;
+}
+
 
 .field-area {
     border: 1px solid #ccc;
@@ -269,8 +284,6 @@ h5 {
     border-bottom-width: 1px;
     border-bottom-color: 37332f;
 }
-
-
 
 .container-menu {
     background-color: white;
@@ -328,16 +341,22 @@ h5 {
 /*    Imagery    */
 
 
-.b2bMap{
-    border: 1px solid rgb(165, 165, 165);
+.logo-anchor {
+    text-decoration: none;
 }
 
-.carousel-text {
-    color: #00528c;
-    border: 0;
-    color: white; 
-    text-shadow: 1px 1px 3px black
+.logo-anchor:hover {
+    background-color: transparent;
+}
 
+.logo-anchor:focus {
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+
+.b2bMap{
+    border: 1px solid rgb(165, 165, 165);
 }
 
 .responsiveImage {
@@ -351,11 +370,12 @@ h5 {
     margin-right: 1.5rem;
 }
 
-.clearfix::after {
-    content: "";
-    clear: both;
-    display: table;
+.responsiveLogo {
+    height: auto;
+    width: 100%;
+    max-width: 350px;
 }
+
 
 .EZImage {
     height: auto;
@@ -366,11 +386,18 @@ h5 {
     box-shadow: 0 0 1rem lightgray;
 }
 
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
 .FAIcon {
     color: #327dc8;
 }
 
-video{
+@media only screen and (min-width: 576px) {
+    video {
     background-position: top center;
     position:relative;
     right: 0px; 
@@ -385,3 +412,40 @@ video{
     padding: 0px;
 }
 
+    .still-image {
+        display: none;
+    }
+}
+/* .still-image {
+    background-position: top center;
+    background-size: cover;
+    background-repeat: no-repeat;
+} */
+
+@media only screen and (max-width: 575px) {
+    .still-image {
+        background-image: url('/media/site-images/MechanicStillMobileV02.png');
+        background-position: top center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        right: 0px; 
+        margin: 0px;
+        padding: 0px;
+    }
+        
+    video {
+     display: none;
+    }
+  }
+
+
+
+/* 
+.carousel-text {
+    color: #00528c;
+    border: 0;
+    color: white; 
+    text-shadow: 1px 1px 3px black
+
+}
+ */
