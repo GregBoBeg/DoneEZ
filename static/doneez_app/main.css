@@ -340,6 +340,24 @@ h5 {
  /*---------------*/
 /*    Imagery    */
 
+.signup-container {
+    padding: 0.5rem 0rem 0.2rem 0rem;
+    margin-bottom: 0.5rem;
+    color: #00528c;
+    border-bottom: 0.2px solid #00528c;
+}
+
+.signup-header {
+    font-size: x-large;
+    white-space: nowrap;
+}
+
+.signup-logo {
+    max-width: 100px;
+}
+ 
+
+
 
 .logo-anchor {
     text-decoration: none;

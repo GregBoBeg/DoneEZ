@@ -3,7 +3,7 @@
 {% block content %}
 <div class="container mb-5">
     <div class="row justify-content-center">
-        <div class="col" style="min-width: 415px; max-width: 800px;"> <!-- Use this div to set the form width -->
+        <div class="col" style="max-width: 800px;"> <!-- Use this div to set the form width -->
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col"> 
@@ -37,11 +37,11 @@
                         <!-- <div>Hours of Operation{{business.business_hours|linebreaks}}</div> -->
                         
                         {% if business.business_hours_mon_fm != "Leave Blank" or business.business_hours_tue_fm != "Leave Blank" or business.business_hours_wed_fm != "Leave Blank" or business.business_hours_thu_fm != "Leave Blank" or business.business_hours_fri_fm != "Leave Blank" or business.business_hours_sat_fm != "Leave Blank" or business.business_hours_sun_fm != "Leave Blank" %}
-                            <div>Hours of Operation</div>
+                        <div>Hours of Operation</div>
                         {% endif %}
                         <div class="container">
                             <div class="row">
-                                <div class="col-auto">
+                                <div class="col-auto m-0 p-0">
                                     {% if business.business_hours_mon_fm != "Leave Blank" %} Mon:<br> {% endif %}
                                     {% if business.business_hours_tue_fm != "Leave Blank" %} Tue:<br> {% endif %}
                                     {% if business.business_hours_wed_fm != "Leave Blank" %} Wed:<br> {% endif %}
@@ -71,7 +71,7 @@
                         {% endif %}
             
                     </div>
-                    <div class="col" style="min-width: 350px;"> 
+                    <div class="col" style="min-width: 310px;"> 
                         <div class="my-3 b2bMap">
                         {{ b2b_map|safe }}
                         </div>

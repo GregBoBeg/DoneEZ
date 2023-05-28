@@ -4,11 +4,14 @@
 <div class="container mb-5">
     <div class="row">
         <div class="col">
-            <h1>Partner Signup<img src="/media/site-images/Logo v02 Tn.png" style="float:right;"></h1>
-            <br>
+            <div class="signup-container">
+                <img class="signup-logo" src="/media/site-images/Logo v02 Tn.png">
+                <span class="signup-header">Partner Signup</span>
+            </div>
+            
             <div class="container">
                 <div class="row justify-content-center">
-                    <div class="col" style="min-width: 415px; max-width: 700px;"> <!-- Use this div to set the form width -->
+                    <div class="col" style="max-width: 700px;"> <!-- Use this div to set the form width -->
                         <div class="container shadow-lg rounded-lg p-0 m-0"> <!-- This container provides the card's shadow -->
                             <div class="row">
                                 <div class="col">
@@ -31,7 +34,7 @@
                                                 <!-- Cross Site Request Forgery Security Token -->
                                                 {% csrf_token %}
 
-                                                <div class="container">
+                                                <div class="container ps-0">
 
                                                     <!-- Form Errors -->
                                                     {% include "dashboard/dashboard-errors.html" %}
@@ -46,7 +49,7 @@
 
                                                     <!-- Form Fields -->
 
-                                                    <div class="row">
+                                                    <div class="row px-0">
 
                                                         <div class="col-12 pt-3 px-0">
                                                             <div class="form-floating">{{ form.business_type }}</div>

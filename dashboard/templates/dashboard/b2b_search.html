@@ -32,28 +32,30 @@
                             <div>  
                                 <fieldset id="FormDistanceRadio">
                                     Map Radius:
-
+                                    <span style="white-space: nowrap;">
                                     {% if form_distance_selected == 30 %}
                                     <input type="radio" name="FormDistanceRadio" id="Miles30" value="30" onClick="checkboxSelected({{ business_type_selected }});" checked="checked">
                                     {% else %}
                                     <input type="radio" name="FormDistanceRadio" id="Miles30" value="30" onClick="checkboxSelected({{ business_type_selected }});">
                                     {% endif %}
                                     <label for= "Miles30">30 mi.</label>
-                                    
+                                    </span>
+                                    <span style="white-space: nowrap;">
                                     {% if form_distance_selected == 60 %}
                                     <input type="radio" name="FormDistanceRadio" id="Miles60" value="60" onClick="checkboxSelected({{ business_type_selected }});" checked="checked">
                                     {% else %}
                                     <input type="radio" name="FormDistanceRadio" id="Miles60" value="60" onClick="checkboxSelected({{ business_type_selected }});">
                                     {% endif %}
                                     <label for= "Miles60">60 mi.</label>
-
+                                    </span>
+                                    <span style="white-space: nowrap;">
                                     {% if form_distance_selected >= 120 %}
                                     <input type="radio" name="FormDistanceRadio" id="Miles120" value="120" onClick="checkboxSelected({{ business_type_selected }});" checked="checked">
                                     {% else %}
                                     <input type="radio" name="FormDistanceRadio" id="Miles120" value="120" onClick="checkboxSelected({{ business_type_selected }});">
                                     {% endif %}
                                     <label for= "Miles120">120 mi.</label>
-
+                                    </span>
 
                                     <!-- Code for an "All" option
                                     {% if form_distance_selected == 9999 %}
