@@ -34,14 +34,14 @@
                                                 <!-- Cross Site Request Forgery Security Token -->
                                                 {% csrf_token %}
 
-                                                <div class="container ps-0">
+                                                <div class="container px-0">
 
                                                     <!-- Form Errors -->
                                                     {% include "dashboard/dashboard-errors.html" %}
 
                                                     <!-- Form Instructions -->
 
-                                                    <div class="row">
+                                                    <div class="row justify-content-center">
                                                         <div class="col text-center">
                                                             <p class="small">Tell us what kind of business you are...</p>
                                                         </div>
@@ -49,9 +49,9 @@
 
                                                     <!-- Form Fields -->
 
-                                                    <div class="row px-0">
+                                                    <div class="row justify-content-center ps-0 pe-3">
 
-                                                        <div class="col-12 pt-3 px-0">
+                                                        <div class="col-12 pt-3 px-0 justify-content-center">
                                                             <div class="form-floating">{{ form.business_type }}</div>
                                                             {% if form.username.help_text %}
                                                             <div class="form-text text-muted small mt-0">{{ form.username.help_text|safe }}</div>
@@ -63,8 +63,8 @@
 
                                                     <!-- Form Buttons -->
 
-                                                    <div class="row">
-                                                        <div class="d-grid gap-3 pt-4 px-0">
+                                                    <div class="row justify-content-center">
+                                                        <div class="d-grid gap-3 pt-4 px-0 text-center">
                                                             <button type="submit" class="btn btn-site">Save and Continue</button>
                                                             <a href="/" class="btn btn-site" value="cancel">Exit Signup</a>
                                                         </div>
