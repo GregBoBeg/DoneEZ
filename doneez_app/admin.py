@@ -103,7 +103,7 @@ class BusinessAdmin(admin.ModelAdmin):
         return redirect(reverse(redirect_url))
 
 
-    list_display = ('business_name','user','business_type','business_address_city','business_address_state','business_address_zip','signup_stage','approve' )
+    list_display = ('business_name','user','business_type','business_address_city','business_address_state','business_address_zip','signup_stage','business_address_map_status','approve' )
     list_filter = ['business_type', 'signup_stage', 'business_address_map_status']
     list_display_links = ['business_name',]
 

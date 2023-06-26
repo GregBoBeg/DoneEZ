@@ -319,7 +319,7 @@ def business_map_address(request):
                             form.cleaned_data.get('business_address_zip'))
 
                     nomAgent = Nominatim(user_agent = 'DoneEZ')
-                    myaddr = nomAgent.geocode(loc, timeout = 3)
+                    myaddr = nomAgent.geocode(loc, timeout = 6)
                     Business.objects.filter(pk=request.user.business.id).update(**{
                         'business_address_longitude':myaddr.longitude,
                         'business_address_latitude':myaddr.latitude                    
