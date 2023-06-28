@@ -148,7 +148,7 @@ class Business(models.Model):
     MAP_STATUS_CHOICES = (
         ('Map Unverified', 'Map Unverified'),
         ('Map Verified', 'Map Verified'),
-        ('Map Error', 'Map Error.'),
+        ('Map Error', 'Map Error'),
     )
     BUSINESS_HOURS_FM = (
         ("Leave Blank", "Leave Blank"),
@@ -269,8 +269,8 @@ class Business(models.Model):
     business_address_city = models.CharField(max_length=50, verbose_name="City")
     business_address_state = models.CharField(max_length=2, verbose_name="State")
     business_address_zip = models.CharField(max_length=10, verbose_name="Zip")
-    business_address_latitude = models.DecimalField(max_digits=10, decimal_places=7, default=0, blank=True, verbose_name="Latitude")
-    business_address_longitude = models.DecimalField(max_digits=10, decimal_places=7, default=0, blank=True, verbose_name="Longitude")
+    business_address_latitude = models.DecimalField(max_digits=20, decimal_places=16, default=0, blank=True, verbose_name="Latitude")
+    business_address_longitude = models.DecimalField(max_digits=20, decimal_places=16, default=0, blank=True, verbose_name="Longitude")
     business_address_map_status = models.CharField(max_length=14, default="Map Unverified", choices=MAP_STATUS_CHOICES, blank=True, verbose_name="Map Status")
     business_hours_mon_fm = models.CharField(max_length=20, default="Leave Blank", choices=BUSINESS_HOURS_FM, verbose_name="Mon From")
     business_hours_mon_to = models.CharField(max_length=20, default="8:00 pm", choices=BUSINESS_HOURS_TO, verbose_name="Mon To")
