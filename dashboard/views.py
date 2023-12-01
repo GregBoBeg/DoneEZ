@@ -579,6 +579,16 @@ def solutions(request, solutions_menu_selection=None):
 
         return render(request, 'dashboard/solutions.html', context)
 
+# Supplies
+
+@login_required
+def supplies(request):
+    # Only allow access if signup is "DONE".
+    if request.user.business.signup_stage != "DONE":
+        return redirect(to='dashboard-home')
+    else:
+        return render(request, 'dashboard/supplies.html')
+
 
 
 # Vendor Profile (aka "Supplier")

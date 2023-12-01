@@ -1,0 +1,48 @@
+{% extends "dashboard/dashboard-base.html" %}
+
+{% block content %}
+
+<div class="container mb-5">
+    <div class="row">
+        <div class="col">
+
+            <form name="solutionsForm" action="{% url 'solutions' %}" method="GET" class="form-floating">
+            <!-- Cross Site Request Forgery Security Token -->
+            {% csrf_token %}
+
+            <div>
+                <h1 class="display-4">Business Supplies</h1>
+                <h3>Pre-Negotiated Discounts</h3>
+                <p>We've negotiated with suppliers to offer you unique discounts on the supplies you need.</p>
+                <hr>
+            </div>
+
+            <div class="container">
+                <div class="row justify-content-left">
+
+                    <div class="col" style="width: 100%;"> <!-- Use this div to set the column width -->
+                        <!-- Search Field -->
+                        <div>
+                            <div id="my-store-95265857"></div>
+                            <div>
+                            <script data-cfasync="false" type="text/javascript" src="https://app.ecwid.com/script.js?95265857&data_platform=code&data_date=2023-11-19" charset="utf-8"></script><script type="text/javascript"> xProductBrowser("categoriesPerRow=3","views=grid(20,3) list(60) table(60)","categoryView=grid","searchView=list","id=my-store-95265857");</script>
+                            </div>                
+                        </div>
+            
+
+
+                    </div>
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+{% endblock content %}
+
+
+  
