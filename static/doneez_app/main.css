@@ -47,7 +47,7 @@ p {
 
 
 a {
-    color: #00528c; 
+    color: red; 
     text-decoration: none;
     padding: 1px 4px 1px 4px;
     white-space: nowrap;
@@ -199,6 +199,24 @@ h5 {
     background-color: #327dc8;
     border-color: #327dc8;
     color: white;
+}
+
+.btn-img {
+    background-color: none;
+    border-color: none;
+    color: none;
+}
+
+.btn-img:hover {
+    background-color: none;
+    border-color: none;
+    color: none;
+}
+
+.btn-img:focus {
+    background-color: none;
+    border-color: none;
+    color: none;
 }
 
 

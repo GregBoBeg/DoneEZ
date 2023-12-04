@@ -201,6 +201,24 @@ h5 {
     color: white;
 }
 
+a.btn-img {
+    background-color: none;
+    border-color: none;
+    color: none;
+}
+
+a.btn-img:hover {
+    background-color: white;
+    border-color: none;
+    color: none;
+}
+
+a.btn-img:focus {
+    background-color: none;
+    border-color: none;
+    color: none;
+}
+
 
  /*---------------*/
 /*    Forms    */
