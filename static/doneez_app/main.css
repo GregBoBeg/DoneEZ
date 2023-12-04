@@ -47,7 +47,7 @@ p {
 
 
 a {
-    color: red; 
+    color: #00528c; 
     text-decoration: none;
     padding: 1px 4px 1px 4px;
     white-space: nowrap;
@@ -201,19 +201,19 @@ h5 {
     color: white;
 }
 
-.btn-img {
+a.btn-img {
     background-color: none;
     border-color: none;
     color: none;
 }
 
-.btn-img:hover {
-    background-color: none;
+a.btn-img:hover {
+    background-color: white;
     border-color: none;
     color: none;
 }
 
-.btn-img:focus {
+a.btn-img:focus {
     background-color: none;
     border-color: none;
     color: none;
